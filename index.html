@@ -137,7 +137,7 @@
         <video autoplay class="absolute inset-0 h-full w-full object-cover scale-105" loop muted playsinline poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid1.mp4"></video>
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,10,10,.25),rgba(10,10,10,.9))]"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/45 to-[#0A0A0A]/75"></div>
-        <div class="absolute inset-0 noise-bg mix-blend-screen opacity-70"></div>
+        <div class="absolute inset-0 noise-bg opacity-[0.15] pointer-events-none"></div>
         
         <i class="ti ti-music absolute left-[7%] top-[26%] text-[52px] text-[#D4AF37]/35 float-note"></i>
         <i class="ti ti-music-heart absolute right-[9%] top-[34%] text-[44px] text-[#FF0080]/45 float-note"></i>
@@ -400,8 +400,8 @@
     <!-- ============ CONTACTO ============ -->
     <section class="relative py-24 md:py-32 overflow-hidden border-t border-white/[0.07]" id="contacto">
         <!-- Fondo de agua -->
-        <div class="absolute inset-0 z-0 opacity-20 mix-blend-luminosity pointer-events-none">
-            <img src="assets/backgrounds/foto2.jpeg" class="w-full h-full object-cover filter grayscale contrast-125" alt="Fondo Contacto">
+        <div class="absolute inset-0 z-0 opacity-15 pointer-events-none">
+            <img src="assets/backgrounds/foto2.jpeg" class="w-full h-full object-cover filter grayscale" alt="Fondo Contacto">
             <div class="absolute inset-0 bg-gradient-to-b from-[#000] via-transparent to-[#000]"></div>
         </div>
         <div class="absolute inset-0 z-0 noise-bg opacity-30 pointer-events-none"></div>
@@ -526,7 +526,7 @@
     gsap.registerPlugin(ScrollTrigger);
 
     /* ---------- Smooth scroll ---------- */
-    const lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1.05 });
+    const lenis = new Lenis({ lerp: 0.12, wheelMultiplier: 1.05 });
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((t) => lenis.raf(t * 1000));
     gsap.ticker.lagSmoothing(0);
