@@ -705,6 +705,20 @@
 
         videos.forEach(v => {
             focusObserver.observe(v);
+            v.loop = false; // Quitar el loop infinito para poder avanzar
+            
+            v.addEventListener('ended', () => {
+                const currentCard = v.closest('.reel-card');
+                if (activeCard === currentCard) {
+                    const currentIndex = Array.from(cards).indexOf(currentCard);
+                    const nextCard = cards[currentIndex + 1];
+                    if (nextCard) {
+                        activeCard = nextCard;
+                        track.scrollTo({ left: nextCard.offsetLeft - (window.innerWidth > 768 ? 48 : 24), behavior: 'smooth' });
+                        updateCards();
+                    }
+                }
+            });
         });
 
         /* Reel navigation buttons */
