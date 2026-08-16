@@ -606,21 +606,25 @@
             });
         });
 
-        const observer = new IntersectionObserver((entries) => {
+        // Observador 1: Solo para reproducir/pausar según visibilidad en la pantalla (Viewport)
+        const playObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const vid = entry.target;
-                const card = vid.closest('.reel-card');
-                
-                // Play logic
-                if (entry.intersectionRatio >= 0.3) {
+                if (entry.isIntersecting) {
                     vid.play().catch(()=>{});
                 } else {
                     vid.pause();
                 }
+            });
+        }, { threshold: 0.2 });
 
-                // TikTok focus logic for mobile
+        // Observador 2: Solo para el efecto TikTok según visibilidad dentro del contenedor horizontal (Track)
+        const focusObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const card = entry.target.closest('.reel-card');
+                
                 if (window.innerWidth <= 768) {
-                    if (entry.intersectionRatio >= 0.55) {
+                    if (entry.isIntersecting) {
                         activeCard = card;
                         updateCards();
                     } else if (activeCard === card) {
@@ -628,16 +632,19 @@
                         updateCards();
                     }
                 } else {
-                    // Desktop: solo apagar sonido si se oculta por completo
-                    if (entry.intersectionRatio < 0.3 && activeCard === card) {
+                    // En desktop limpiamos el foco si se oculta por completo
+                    if (!entry.isIntersecting && activeCard === card) {
                         activeCard = null;
                         updateCards();
                     }
                 }
             });
-        }, { threshold: [0, 0.3, 0.55] });
+        }, { root: track, threshold: 0.6 });
 
-        videos.forEach(v => observer.observe(v));
+        videos.forEach(v => {
+            playObserver.observe(v);
+            focusObserver.observe(v);
+        });
 
         /* Reel navigation buttons */
         document.querySelector('[data-reel="prev"]')?.addEventListener('click', () => {
