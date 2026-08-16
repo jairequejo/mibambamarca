@@ -629,15 +629,7 @@
                     if (vid) {
                         vid.muted = false;
                         const p = vid.play();
-                        if (p !== undefined) {
-                            p.catch(()=>{
-                                // Si el navegador bloquea el video, mostramos el overlay para indicarle al usuario que presione
-                                if (vid.paused && overlay) overlay.style.opacity = '1';
-                            }).then(()=>{
-                                // Si se reproduce con éxito, ocultamos el overlay
-                                if (!vid.paused && overlay) overlay.style.opacity = '0';
-                            });
-                        }
+                        if (p !== undefined) p.catch(()=>{});
                     }
                 } else {
                     card.style.transform = activeCard ? 'scale(0.96)' : 'scale(1)';
@@ -645,7 +637,11 @@
                     card.style.filter = activeCard ? 'brightness(0.8) saturate(0.8)' : 'brightness(1) saturate(1)';
                     card.style.boxShadow = 'none';
                     card.style.zIndex = '1';
-                    if (vid) vid.muted = true;
+                    if (vid) {
+                        vid.muted = true;
+                        // Pausar si no es la activa
+                        vid.pause();
+                    }
                     if (overlay) overlay.style.opacity = '0';
                 }
             });
@@ -654,29 +650,23 @@
         cards.forEach(card => {
             card.addEventListener('click', () => {
                 const vid = card.querySelector('.reel-video');
-                const overlay = card.querySelector('.play-overlay');
                 
                 if (activeCard === card) {
-                    // Safari miente con vid.paused si tiene atributo autoplay.
-                    // La única fuente de verdad es si el overlay está visible (promesa rechazada).
-                    const isBlocked = overlay && overlay.style.opacity === '1';
-                    
-                    if (vid && isBlocked) {
-                        vid.muted = false;
-                        const p = vid.play();
-                        if (p !== undefined) {
-                            p.catch(()=>{})
-                             .then(()=>{ if(overlay) overlay.style.opacity = '0'; });
+                    // Estilo TikTok: Tocar la tarjeta activa alterna entre Play y Pause, NO la encoge.
+                    if (vid) {
+                        if (vid.paused) {
+                            vid.muted = false;
+                            vid.play().catch(()=>{});
+                        } else {
+                            vid.pause();
                         }
-                    } else {
-                        activeCard = null; // Toggle off normal si ya estaba sonando
                     }
                 } else {
                     activeCard = card;
                     // Ensure the clicked card is smoothly scrolled into full view if partially hidden
                     track.scrollTo({ left: card.offsetLeft - (window.innerWidth > 768 ? 48 : 24), behavior: 'smooth' });
+                    updateCards();
                 }
-                updateCards();
             });
         });
 
@@ -706,6 +696,30 @@
         videos.forEach(v => {
             focusObserver.observe(v);
             v.loop = false; // Quitar el loop infinito para poder avanzar
+            
+            const overlay = v.parentElement.querySelector('.play-overlay');
+            const icon = overlay ? overlay.querySelector('i') : null;
+            const text = overlay ? overlay.querySelector('span') : null;
+
+            v.addEventListener('waiting', () => {
+                if (overlay && activeCard === v.closest('.reel-card')) {
+                    overlay.style.opacity = '1';
+                    if (icon) icon.className = 'ti ti-loader text-2xl text-white animate-[spin_1.5s_linear_infinite]';
+                    if (text) text.innerText = 'CARGANDO...';
+                }
+            });
+
+            v.addEventListener('playing', () => {
+                if (overlay) overlay.style.opacity = '0';
+            });
+
+            v.addEventListener('pause', () => {
+                if (overlay && activeCard === v.closest('.reel-card')) {
+                    overlay.style.opacity = '1';
+                    if (icon) icon.className = 'ti ti-player-play-filled text-2xl text-white ml-1';
+                    if (text) text.innerText = 'REPRODUCIR';
+                }
+            });
             
             v.addEventListener('ended', () => {
                 const currentCard = v.closest('.reel-card');
