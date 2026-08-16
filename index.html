@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Gran Banda Mi Bambamarca | El peso pesado de las patronales">
   <meta property="og:description" content="¿Fiesta patronal en Cajamarca? Contrata a la Gran Banda Mi Bambamarca. 20 músicos de élite que hacen retumbar la plaza entera.">
-  <meta property="og:image" content="https://jairequejo.github.io/mibambamarca/assets/backgrounds/foto2.jpeg">
+  <meta property="og:image" content="https://jairequejo.github.io/mibambamarca/assets/brand/logo.png">
   <meta property="og:locale" content="es_PE">
 
   <!-- Schema.org para Google y Gemini (Entidad Musical/Local) -->
@@ -273,7 +273,7 @@
                 </p>
             </div>
             
-            <div class="mt-12 relative w-full h-[500px] md:h-[750px] overflow-hidden bg-[#0A0A0A]/50 border-y border-white/[0.05] shadow-inner" id="random-gallery">
+            <div class="mt-12 relative w-full h-[500px] md:h-[750px] overflow-hidden bg-[#0A0A0A]/50 border-y border-white/[0.05] shadow-inner touch-pan-y" id="random-gallery">
                 <!-- JS will inject dynamic infinite scrolling images here -->
             </div>
         </div>
@@ -791,13 +791,13 @@
             vid.loop = true;
             vid.muted = true;
             vid.playsInline = true;
-            vid.className = 'absolute inset-0 h-full w-full object-cover filter brightness-[0.7] group-hover:brightness-110 group-hover:scale-105 transition-all duration-700';
+            vid.className = 'absolute inset-0 h-full w-full object-cover filter brightness-[0.7] group-hover:brightness-110 group-hover:scale-105 transition-all duration-700 pointer-events-none';
             figure.appendChild(vid);
           } else {
             const id = getRandomImageId();
             const img = document.createElement('img');
             img.src = `assets/gallery/gallery${id}.jpg`;
-            img.className = 'absolute inset-0 h-full w-full object-cover object-[center_25%] filter brightness-[0.7] group-hover:brightness-110 group-hover:scale-105 transition-all duration-700';
+            img.className = 'absolute inset-0 h-full w-full object-cover object-[center_25%] filter brightness-[0.7] group-hover:brightness-110 group-hover:scale-105 transition-all duration-700 pointer-events-none';
             figure.appendChild(img);
           }
           
@@ -837,6 +837,10 @@
         }
       });
       window.addEventListener('pointerup', () => {
+        isDragging = false;
+        randomGallery.style.cursor = 'grab';
+      });
+      window.addEventListener('pointercancel', () => {
         isDragging = false;
         randomGallery.style.cursor = 'grab';
       });
