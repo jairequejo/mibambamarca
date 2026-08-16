@@ -1,430 +1,671 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Gran Banda Mi Bambamarca — Nueva Generación</title>
-<meta name="description" content="Gran Banda Mi Bambamarca. Nueva Generación. Contrataciones por WhatsApp +51 957 678 804.">
-<style>
+<html lang="es"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gran Banda Mi Bambamarca</title>
+  <meta name="description" content="Orquesta típica de Bambamarca, Cajamarca. Contratos 2026.">
+  <script src="https://unpkg.com/@tailwindcss/browser@4.3.3/dist/index.global.js" integrity="sha384-2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB" crossorigin="anonymous"></script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+    @import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont/tabler-icons.min.css');
 
-  /* ============ RESET / BASE ============ */
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+    html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+    
+    .f-anton { font-family: 'Anton', system-ui, sans-serif; letter-spacing: 0.01em; }
+    .f-grotesk { font-family: 'Space Grotesk', system-ui, sans-serif; }
 
-  :root{
-    --bg:        #0a0602;
-    --bg-alt:    #120c04;
-    --bg-card:   #17110a;
-    --ink:       #fbf3df;
-    --muted:     #a8987a;
-    --gold-100:  #fff6d4;
-    --gold-300:  #ffd75e;
-    --gold-500:  #e6a915;
-    --gold-700:  #9c6a0c;
-    --gold-900:  #3a2400;
-    --red:       #ff3b30;
-    --red-deep:  #8f0f0a;
-    --line:      rgba(255,215,94,.22);
-    --ff-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --ff-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  }
+    .gold-txt {
+      color: #F0CB56;
+      text-shadow: 0 1px 0 #7A5A12, 0 2px 0 #6A4E10, 0 3px 0 #55400C, 0 6px 14px rgba(0,0,0,.85);
+    }
+    .cyan-outline {
+      color: transparent;
+      -webkit-text-stroke: 2px #00FFFF;
+      text-shadow: 0 0 22px rgba(0,255,255,.45);
+    }
+    .pink-outline {
+      color: transparent;
+      -webkit-text-stroke: 2px #FF0080;
+    }
+    .gold-rule { background: linear-gradient(90deg, transparent, #D4AF37 20%, #F5DE8A 50%, #D4AF37 80%, transparent); }
+    .neon-pink-glow { box-shadow: 0 0 0 2px #FF0080, 0 0 24px rgba(255,0,128,.55), 0 0 60px rgba(255,0,128,.28); }
+    .neon-cyan-glow { box-shadow: 0 0 0 2px #00FFFF, 0 0 22px rgba(0,255,255,.4); }
+    .gold-edge { box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 0 0 1px rgba(212,175,55,.55), 0 18px 40px rgba(0,0,0,.6); }
 
-  body{
-    background:
-      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(230,169,21,.16), transparent 60%),
-      var(--bg);
-    color:var(--ink);
-    font-family:var(--ff-body);
-    line-height:1.5;
-    overflow-x:hidden;
-    padding-bottom:64px;
-  }
-  @media(min-width:860px){body{padding-bottom:0;}}
+    .noise-bg {
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(255,0,128,.16), transparent 42%),
+        radial-gradient(circle at 88% 8%, rgba(0,255,255,.12), transparent 40%),
+        radial-gradient(circle at 50% 96%, rgba(212,175,55,.14), transparent 45%);
+    }
 
-  img{max-width:100%;display:block;}
-  a{color:inherit;text-decoration:none;}
-  ul{list-style:none;}
+    .reel-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+    .reel-scroll::-webkit-scrollbar { display: none; }
 
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
-  }
+    .mq-track { display: flex; width: max-content; white-space: nowrap; will-change: transform; }
 
-  :focus-visible{outline:3px solid var(--gold-300);outline-offset:3px;}
+    .polaroid { position: absolute; cursor: grab; touch-action: none; transition: box-shadow 0.3s; }
+    .polaroid:active { cursor: grabbing; }
+    .polaroid:hover { box-shadow: 0 25px 60px rgba(255,0,128,.4); }
 
-  .wrap{width:100%;max-width:1180px;margin:0 auto;padding-inline:20px;}
+    .flag-chip {
+      width: 30px; height: 30px; border-radius: 9999px;
+      box-shadow: 0 0 0 2px #D4AF37, 0 2px 8px rgba(0,0,0,.6);
+      background-size: cover; background-position: center;
+      display: grid; place-items: center; font-size: 16px; line-height: 1;
+      background-color: #141414;
+    }
 
-  /* ---- gold foil text ---- */
-  .gold-text{
-    background:linear-gradient(180deg,#fff8dd 0%,#ffe184 18%,#f0b224 42%,#a5690a 58%,#f6c645 78%,#fff3c4 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    filter:drop-shadow(0 2px 0 rgba(0,0,0,.55)) drop-shadow(0 6px 14px rgba(0,0,0,.5));
-  }
 
-  /* ---- ribbon banner (like the logo's black plaque) ---- */
-  .ribbon{
-    display:inline-block;
-    background:linear-gradient(180deg,#1a1408,#050300);
-    border:2px solid var(--gold-500);
-    box-shadow:0 0 0 4px var(--bg), 0 6px 18px rgba(0,0,0,.5);
-    padding:8px 20px;
-    font-weight:900;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    font-size:.7rem;
-  }
-
-  .star{color:var(--gold-300);}
-
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
-    font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--gold-300);
-  }
-  .eyebrow::before,.eyebrow::after{content:"★";color:var(--gold-500);font-size:.7em;}
-
-  /* ============ NAV ============ */
-  .nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(10,6,2,.9);
-    backdrop-filter:blur(6px);
-    border-bottom:2px solid var(--gold-700);
-  }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding-block:14px;}
-  .nav-brand{
-    font-weight:900;font-size:1rem;letter-spacing:.04em;text-transform:uppercase;
-    display:flex;align-items:center;gap:8px;
-  }
-  .nav-links{
-    display:none;gap:28px;font-weight:700;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);
-  }
-  .nav-links a{position:relative;padding-block:4px;}
-  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold-300);transition:width .2s ease;}
-  .nav-links a:hover{color:var(--ink);}
-  .nav-links a:hover::after,.nav-links a:focus-visible::after{width:100%;}
-  .nav-cta{
-    display:none;
-    background:var(--red);color:#fff;font-weight:800;font-size:.76rem;letter-spacing:.04em;text-transform:uppercase;
-    padding:10px 18px;border:2px solid var(--gold-500);
-  }
-  .nav-cta:hover{background:var(--red-deep);}
-  @media(min-width:860px){.nav-links{display:flex;}.nav-cta{display:inline-block;}}
-
-  /* ============ HERO ============ */
-  .hero{
-    position:relative;
-    padding:52px 0 48px;
-    border-bottom:2px solid var(--gold-700);
-    overflow:hidden;
-  }
-  .hero::before{
-    content:"";
-    position:absolute;inset:-20% -10% auto -10%;height:70%;
-    background:radial-gradient(ellipse at 50% 0%, rgba(255,215,94,.14), transparent 65%);
-    pointer-events:none;
-  }
-  .hero-inner{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;}
-
-  .hero-logo{
-    width:min(560px,92%);
-    margin-inline:auto;
-    filter:drop-shadow(0 14px 30px rgba(0,0,0,.55));
-    animation:logo-in .8s cubic-bezier(.2,.8,.2,1) both;
-  }
-  @keyframes logo-in{
-    from{opacity:0;transform:translateY(14px) scale(.97);}
-    to{opacity:1;transform:translateY(0) scale(1);}
-  }
-
-  .hero-slogan{
-    margin-top:14px;
-    font-weight:900;
-    font-size:clamp(1.1rem,4vw,1.7rem);
-    text-transform:uppercase;
-    letter-spacing:.04em;
-  }
-  .hero-slogan .sub{
-    display:block;
-    margin-top:6px;
-    font-weight:600;
-    font-size:.85rem;
-    letter-spacing:.02em;
-    color:var(--muted);
-    text-transform:none;
-  }
-
-  .hero-cta-row{margin-top:32px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;}
-
-  .cta-big{
-    display:inline-flex;align-items:center;gap:14px;
-    background:var(--red);
-    color:#fff;
-    font-family:var(--ff-display);
-    font-weight:900;
-    font-size:clamp(1rem,3.2vw,1.3rem);
-    text-transform:uppercase;letter-spacing:.02em;
-    padding:20px 28px;
-    border:3px solid var(--gold-500);
-    box-shadow:7px 7px 0 var(--gold-900), 0 0 0 3px var(--bg) inset;
-    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
-  }
-  .cta-big svg{width:24px;height:24px;flex:none;}
-  .cta-big:hover,.cta-big:focus-visible{
-    transform:translate(-4px,-4px);
-    box-shadow:11px 11px 0 var(--gold-500);
-    background:#ff5347;
-  }
-  .cta-big:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--gold-500);}
-
-  .hero-note{margin-top:14px;font-size:.78rem;color:var(--muted);font-weight:600;}
-
-  .hero-flags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
-  .hero-flags span{
-    font-size:1.35rem;line-height:1;
-    width:42px;height:42px;
-    display:grid;place-items:center;
-    border-radius:50%;
-    border:2px solid var(--gold-500);
-    background:radial-gradient(circle at 35% 30%, #2a2008, #0a0602);
-  }
-
-  /* ============ MARQUEE ============ */
-  .marquee{
-    background:linear-gradient(180deg,var(--gold-300),var(--gold-500) 55%,var(--gold-700));
-    color:#1a1206;
-    overflow:hidden;
-    border-block:3px solid var(--gold-900);
-    white-space:nowrap;
-  }
-  .marquee-track{
-    display:inline-flex;width:max-content;
-    animation:scroll-left 26s linear infinite;
-    font-weight:900;text-transform:uppercase;letter-spacing:.03em;
-    font-size:clamp(.9rem,2.2vw,1.2rem);
-    padding-block:11px;
-  }
-  .marquee-track span{padding-inline:20px;}
-  @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-
-  /* ============ SECTION HEADS ============ */
-  section{padding:60px 0;}
-  .sec-head{margin-bottom:34px;max-width:60ch;}
-  .sec-head h2{
-    font-family:var(--ff-display);font-weight:900;text-transform:uppercase;
-    font-size:clamp(1.8rem,5.6vw,2.9rem);line-height:1;margin-top:10px;
-  }
-  .sec-head p{color:var(--muted);margin-top:14px;}
-
-  /* ============ INFO / CONTACTO ============ */
-  .info{background:var(--bg-alt);border-bottom:2px solid var(--gold-900);}
-  .info-grid{
-    display:grid;grid-template-columns:1fr;gap:2px;
-    background:var(--line);border:2px solid var(--gold-700);
-  }
-  @media(min-width:640px){.info-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(min-width:960px){.info-grid{grid-template-columns:repeat(4,1fr);}}
-  .info-card{
-    background:var(--bg-card);padding:26px 22px;
-    display:flex;flex-direction:column;gap:10px;
-    transition:background .2s ease;
-  }
-  .info-card:hover{background:#1f1608;}
-  .info-card .ic{
-    width:40px;height:40px;display:grid;place-items:center;
-    border:2px solid var(--gold-500);color:var(--gold-300);font-weight:900;
-    background:radial-gradient(circle at 35% 30%,#2a2008,#0a0602);
-  }
-  .info-card h3{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;}
-  .info-card .val{font-weight:800;font-size:1.02rem;line-height:1.3;word-break:break-word;}
-  .info-card a.val:hover{color:var(--gold-300);}
-
-  /* ============ MEDIA (asymmetric grid) ============ */
-  .media-grid{display:grid;grid-template-columns:1fr;gap:16px;}
-  @media(min-width:760px){
-    .media-grid{grid-template-columns:repeat(6,1fr);grid-auto-rows:110px;}
-    .reel-1{grid-column:1 / span 2;grid-row:1 / span 4;}
-    .reel-2{grid-column:3 / span 2;grid-row:1 / span 4;}
-    .reel-3{grid-column:5 / span 2;grid-row:1 / span 4;}
-    .photo-a{grid-column:1 / span 3;grid-row:5 / span 2;}
-    .photo-b{grid-column:4 / span 3;grid-row:5 / span 2;}
-  }
-  .media-cell{
-    position:relative;
-    border:2px dashed var(--gold-700);
-    background:var(--bg-card);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-    min-height:220px;overflow:hidden;text-align:center;padding:14px;color:var(--muted);
-    transition:border-color .2s ease;
-  }
-  .media-cell:hover{border-color:var(--gold-300);}
-  .media-cell .tag{
-    position:relative;
-    z-index:10;
-    font-size:.64rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-    background:var(--red);color:#fff;padding:4px 8px;
-  }
-  .media-cell .hint{font-size:.72rem;max-width:22ch;}
-  .media-cell video, .media-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;}
-  .reel{aspect-ratio:9/16;}
-  @media(min-width:760px){.reel{aspect-ratio:auto;height:100%;}}
-
-  /* ============ CTA FINAL ============ */
-  .final-cta{
-    background:linear-gradient(180deg,var(--gold-300),var(--gold-500) 60%,var(--gold-700));
-    border-top:3px solid var(--gold-900);
-    border-bottom:3px solid var(--gold-900);
-    padding:64px 0;text-align:center;color:#1a1206;
-  }
-  .final-cta h2{
-    font-family:var(--ff-display);font-weight:900;text-transform:uppercase;
-    font-size:clamp(1.9rem,7vw,3.6rem);line-height:.98;
-  }
-  .final-cta p{margin-top:14px;font-weight:700;max-width:44ch;margin-inline:auto;color:#2a1e08;}
-  .final-cta .cta-big{margin-top:30px;border-color:#1a1206;box-shadow:7px 7px 0 #1a1206;}
-  .final-cta .cta-big:hover{box-shadow:11px 11px 0 #1a1206;}
-
-  footer{background:var(--bg);padding:32px 0 90px;text-align:center;}
-  footer .brand{font-weight:900;text-transform:uppercase;letter-spacing:.05em;}
-  footer p{color:var(--muted);font-size:.78rem;margin-top:10px;}
-
-  /* ============ STICKY MOBILE WHATSAPP BAR ============ */
-  .sticky-wa{
-    position:fixed;left:0;right:0;bottom:0;z-index:60;
-    background:var(--red);border-top:3px solid var(--gold-500);
-    display:flex;align-items:center;justify-content:center;gap:10px;
-    padding:14px;font-weight:900;text-transform:uppercase;letter-spacing:.03em;font-size:.9rem;color:#fff;
-  }
-  .sticky-wa svg{width:20px;height:20px;}
-  @media(min-width:860px){.sticky-wa{display:none;}}
-
-</style>
+    @keyframes spinSlow { to { transform: rotate(360deg); } }
+    .spin-slow { animation: spinSlow 26s linear infinite; }
+  </style>
 </head>
 <body>
+  <div id="root" class="f-grotesk bg-[#0A0A0A] text-white overflow-x-clip antialiased selection:bg-[#FF0080] selection:text-white">
+    <!-- ============ HEADER FLOTANTE ============ -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-4 transition-all duration-300" id="site-header">
+        <div class="mx-auto max-w-[1320px] flex items-center gap-4 rounded-full border border-[#D4AF37]/40 bg-black/70 backdrop-blur-md px-4 py-2.5 gold-edge">
+            <a class="shrink-0 transition-transform hover:scale-105" href="#top">
+                <img alt="Logo Gran Banda Mi Bambamarca" class="h-11 w-auto drop-shadow-[0_2px_8px_rgba(0,0,0,.9)]" src="assets/logo.png"/>
+            </a>
+            <nav class="hidden lg:flex items-center gap-1 ml-2 text-[13px] font-semibold uppercase tracking-[0.14em]">
+                <a class="nav-link px-3 py-2 rounded-full text-white/70 hover:text-[#00FFFF] transition-colors" href="#videos">Videos</a>
+                <a class="nav-link px-3 py-2 rounded-full text-white/70 hover:text-[#00FFFF] transition-colors" href="#galeria">Galería</a>
+                <a class="nav-link px-3 py-2 rounded-full text-white/70 hover:text-[#00FFFF] transition-colors" href="#repertorio">Repertorio</a>
+                <a class="nav-link px-3 py-2 rounded-full text-white/70 hover:text-[#00FFFF] transition-colors" href="#contacto">Contacto</a>
+            </nav>
+            <div class="ml-auto flex items-center gap-3">
+                <a class="press-btn text-[13px] font-bold uppercase tracking-[0.12em] rounded-full bg-[#FF0080] text-white px-5 py-3 neon-pink-glow flex items-center gap-2 transition-transform hover:scale-105" href="https://wa.me/51957678804?text=Hola%2C%20quiero%20contratar%20a%20la%20Gran%20Banda%20Mi%20Bambamarca" rel="noopener" target="_blank">
+                    <i class="ti ti-brand-whatsapp text-[17px]"></i>
+                    Contrátanos
+                </a>
+            </div>
+        </div>
+    </header>
 
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a href="#top" class="nav-brand"><span class="gold-text">MI BAMBAMARCA</span></a>
-    <nav class="nav-links" aria-label="Navegación principal">
-      <a href="#nosotros">Nosotros</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#media">Media</a>
-    </nav>
-    <a class="nav-cta" href="https://wa.me/51957678804" target="_blank" rel="noopener">Contratar</a>
+    <!-- ============ HERO ============ -->
+    <section class="relative min-h-[860px] h-screen w-full overflow-hidden" id="top">
+        <video autoplay class="absolute inset-0 h-full w-full object-cover scale-105" loop muted playsinline poster="assets/foto2.jpeg" src="assets/vid1.mp4"></video>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,10,10,.25),rgba(10,10,10,.9))]"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/45 to-[#0A0A0A]/75"></div>
+        <div class="absolute inset-0 noise-bg mix-blend-screen opacity-70"></div>
+        
+        <i class="ti ti-music absolute left-[7%] top-[26%] text-[52px] text-[#D4AF37]/35 float-note"></i>
+        <i class="ti ti-music-heart absolute right-[9%] top-[34%] text-[44px] text-[#FF0080]/45 float-note"></i>
+        <i class="ti ti-trumpet absolute right-[16%] bottom-[26%] text-[46px] text-[#00FFFF]/35 float-note"></i>
+        
+        <div class="relative z-10 h-full max-w-[1320px] mx-auto px-6 flex flex-col items-center justify-center text-center pt-20 pb-52">
+            <img alt="Logo oficial Gran Banda Mi Bambamarca" class="w-[min(560px,80vw)] h-auto drop-shadow-[0_10px_40px_rgba(0,0,0,.9)] hover:scale-105 transition-transform duration-500" id="hero-logo" src="assets/logo.png"/>
+            <span class="hero-el mt-4 inline-flex items-center gap-2 rounded-full border border-[#00FFFF]/60 bg-black/50 px-4 py-1.5 text-[11px] md:text-xs font-bold uppercase tracking-[0.42em] text-[#00FFFF] shadow-[0_0_15px_rgba(0,255,255,0.2)]">
+                Nueva Generación
+            </span>
+            <h1 class="f-anton mt-6 uppercase leading-[0.86]">
+                <span class="hero-el block gold-txt text-[clamp(2.6rem,7.6vw,7.4rem)]">Les haremos bailar</span>
+                <span class="hero-el block cyan-outline text-[clamp(2.4rem,7vw,6.8rem)] hover:text-[#00FFFF] transition-colors duration-300">y gozar a ritmo</span>
+                <span class="hero-el block gold-txt text-[clamp(2.6rem,7.6vw,7.4rem)]">de banda</span>
+            </h1>
+            <p class="hero-el mt-7 max-w-2xl text-[15px] md:text-lg text-white/75 font-medium">
+                Orquesta típica de
+                <strong class="text-[#F0CB56] font-semibold">Bambamarca, Cajamarca</strong>. 
+                20 músicos, metales que suenan a fiesta patronal y un repertorio que no deja a nadie sentado.
+            </p>
+            <div class="hero-el mt-9 flex flex-col sm:flex-row items-center gap-4">
+                <a class="press-btn f-anton uppercase text-[19px] md:text-[22px] tracking-wide rounded-full bg-[#FF0080] text-white pl-7 pr-8 py-4 neon-pink-glow flex items-center gap-3 hover:scale-105 transition-transform" href="https://wa.me/51957678804?text=Hola%2C%20quiero%20contratar%20a%20la%20Gran%20Banda%20Mi%20Bambamarca" id="hero-cta" target="_blank">
+                    <i class="ti ti-brand-whatsapp text-[26px]"></i>
+                    ¡Contratos 2026!
+                </a>
+                <a class="press-btn f-anton uppercase text-[17px] md:text-[19px] tracking-wide rounded-full border border-[#D4AF37]/70 bg-black/45 text-[#F0CB56] px-7 py-4 flex items-center gap-3 hover:bg-[#D4AF37]/20 transition-colors" href="#videos">
+                    <i class="ti ti-player-play-filled text-[19px]"></i>
+                    Ver a la banda
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ MARQUESINA DORADA ============ -->
+    <div class="relative z-20 -mt-8 rotate-[-2.2deg] overflow-hidden border-y-2 border-black bg-[linear-gradient(180deg,#F7E08F_0%,#D4AF37_45%,#A8801F_100%)] py-3.5 shadow-[0_18px_50px_rgba(0,0,0,.7)]">
+        <div class="mq-track hover:pause cursor-default" data-mq="1" data-mq-dur="26000">
+            <span class="f-anton flex items-center text-[#0A0A0A] text-[clamp(1.6rem,3vw,2.6rem)] uppercase">
+                <span class="px-6 hover:text-white transition-colors">Contratos 2026</span><i class="ti ti-star-filled text-[18px] px-1"></i>
+                <span class="px-6 hover:text-white transition-colors">Bambamarca</span><i class="ti ti-star-filled text-[18px] px-1"></i>
+                <span class="px-6 hover:text-white transition-colors">Cajamarca</span><i class="ti ti-star-filled text-[18px] px-1"></i>
+                <span class="px-6 hover:text-white transition-colors">Todo el Perú</span><i class="ti ti-star-filled text-[18px] px-1"></i>
+            </span>
+            <span aria-hidden="true" class="f-anton flex items-center text-[#0A0A0A] text-[clamp(1.6rem,3vw,2.6rem)] uppercase">
+                <span class="px-6 hover:text-white transition-colors">Contratos 2026</span><i class="ti ti-star-filled text-[18px] px-1"></i>
+                <span class="px-6 hover:text-white transition-colors">Bambamarca</span><i class="ti ti-star-filled text-[18px] px-1"></i>
+                <span class="px-6 hover:text-white transition-colors">Cajamarca</span><i class="ti ti-star-filled text-[18px] px-1"></i>
+                <span class="px-6 hover:text-white transition-colors">Todo el Perú</span><i class="ti ti-star-filled text-[18px] px-1"></i>
+            </span>
+        </div>
+    </div>
+
+    <!-- ============ REEL TIKTOK ============ -->
+    <section class="relative pt-24 pb-24 md:pt-32" id="videos">
+        <div class="max-w-[1320px] mx-auto px-6 flex flex-wrap items-end gap-6 justify-between">
+            <div>
+                <span class="reveal inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.4em] text-[#FF0080]">
+                    <i class="ti ti-flame text-base"></i> En vivo · sin filtros
+                </span>
+                <h2 class="reveal f-anton uppercase mt-3 text-[clamp(2.4rem,6vw,5.2rem)] leading-[0.9] gold-txt">
+                    Así sonamos<br/><span class="cyan-outline">en la fiesta</span>
+                </h2>
+            </div>
+            <div class="flex items-center gap-3">
+                <p class="reveal hidden md:block max-w-xs text-sm text-white/60 mr-2">
+                    Videos grabados en plena fiesta patronal. Sube el volumen y decide.
+                </p>
+                <button class="press-btn grid place-items-center h-12 w-12 rounded-full border border-[#D4AF37]/60 text-[#F0CB56] hover:bg-[#D4AF37]/15 transition-colors" data-reel="prev">
+                    <i class="ti ti-arrow-left text-xl"></i>
+                </button>
+                <button class="press-btn grid place-items-center h-12 w-12 rounded-full bg-[#00FFFF] text-black neon-cyan-glow hover:scale-105 transition-transform" data-reel="next">
+                    <i class="ti ti-arrow-right text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="reel-scroll relative mt-12 flex gap-5 overflow-x-auto snap-x snap-mandatory px-[calc(50%-134px)] md:px-[calc(50%-156px)] pb-6 transition-none" id="reel-scroll">
+            <!-- Video 1 -->
+            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group">
+                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" autoplay loop muted playsinline poster="assets/foto2.jpeg" src="assets/vid1.mp4"></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
+                <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Virgen del Carmen 2026</span>
+                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Entrada de banda</h3>
+                </div>
+            </article>
+            
+            <!-- Video 2 -->
+            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group">
+                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" autoplay loop muted playsinline poster="assets/foto2.jpeg" src="assets/vid2.mp4"></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
+                <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Plaza de Bambamarca</span>
+                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Cumbia y metales</h3>
+                </div>
+            </article>
+
+            <!-- Video 3 -->
+            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group">
+                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" autoplay loop muted playsinline poster="assets/foto2.jpeg" src="assets/vid3.mp4"></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
+                <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Fiesta patronal</span>
+                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Huayno con bombo</h3>
+                </div>
+            </article>
+
+            <!-- Video 4 (Replaced with IMG_8605.MOV) -->
+            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group">
+                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" autoplay loop muted playsinline poster="assets/gallery1.jpg" src="assets/IMG_8605.MOV"></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
+                <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">La Banda</span>
+                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Pura Energía</h3>
+                </div>
+            </article>
+
+            <!-- Video 5 (Replaced with IMG_8667.MOV) -->
+            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group">
+                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" autoplay loop muted playsinline poster="assets/gallery2.jpg" src="assets/IMG_8667.MOV"></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
+                <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Cajamarca</span>
+                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Tradición Viva</h3>
+                </div>
+            </article>
+
+            <!-- Video 6 (Replaced with IMG_8675.MOV) -->
+            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group">
+                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" autoplay loop muted playsinline poster="assets/gallery3.jpg" src="assets/IMG_8675.MOV"></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
+                <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Fiesta</span>
+                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Gozando</h3>
+                </div>
+            </article>
+
+            <!-- CTA card -->
+            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border-2 border-[#FF0080] bg-[#12000A] grid place-items-center text-center px-7 hover:bg-[#1A0010] transition-colors">
+                <div>
+                    <i class="ti ti-brand-whatsapp text-[54px] text-[#00FF7F] animate-pulse"></i>
+                    <h3 class="f-anton uppercase text-[30px] leading-[0.95] mt-4 gold-txt">
+                        ¿Tu pueblo<br/>es el próximo?
+                    </h3>
+                    <p class="mt-3 text-sm text-white/65">Escríbenos y armamos tu fiesta.</p>
+                    <a class="press-btn mt-6 inline-flex items-center gap-2 rounded-full bg-[#FF0080] text-white px-5 py-3 text-[13px] font-bold uppercase tracking-[0.12em] neon-pink-glow hover:scale-105 transition-transform" href="https://wa.me/51957678804" target="_blank">
+                        957 678 804
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ============ GALERIA PHOTO WALL ============ -->
+    <section class="relative py-24 border-t border-white/[0.07]" id="galeria">
+        <div class="max-w-[1320px] mx-auto px-6">
+            <div class="flex flex-wrap items-end justify-between gap-6">
+                <h2 class="reveal f-anton uppercase text-[clamp(2.4rem,6vw,5.2rem)] leading-[0.9]">
+                    <span class="gold-txt">Galería</span> <span class="pink-outline">de fiestas</span>
+                </h2>
+                <p class="reveal max-w-sm text-sm text-white/60">
+                    «Estamos muy felices por estar presentes en la fiesta en honor de la Virgen del Carmen – Bambamarca.»
+                </p>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-6 gap-3 auto-rows-[150px] md:auto-rows-[200px] [grid-auto-flow:dense]">
+                <!-- Main image -->
+                <figure class="wall-cell relative col-span-2 md:col-span-3 md:row-span-2 z-10 overflow-hidden rounded-2xl border border-[#D4AF37]/50 gold-edge min-h-[260px] group cursor-pointer">
+                    <img alt="Banda en la plaza" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/foto2.jpeg"/>
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-6 translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#00FFFF]">Plaza de armas · Bambamarca</span>
+                        <h3 class="f-anton uppercase text-[26px] md:text-[34px] text-white leading-tight mt-1">La banda completa</h3>
+                    </div>
+                </figure>
+                
+                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
+                    <img alt="Gallery 1" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery1.jpg"/>
+                </figure>
+                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
+                    <img alt="Gallery 2" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery2.jpg"/>
+                </figure>
+                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
+                    <img alt="Gallery 3" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery3.jpg"/>
+                </figure>
+                
+                <figure class="wall-cell relative col-span-2 md:row-span-2 z-10 overflow-hidden rounded-2xl border border-[#FF0080]/50 min-h-[220px] group cursor-pointer neon-pink-glow">
+                    <img alt="Gallery 4" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/gallery4.jpg"/>
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black to-transparent p-5">
+                        <h3 class="f-anton uppercase text-[24px] text-[#F0CB56]">Pasacalle 2026</h3>
+                    </div>
+                </figure>
+                
+                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
+                    <img alt="Gallery 5" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery5.jpg"/>
+                </figure>
+                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
+                    <img alt="Gallery 6" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery6.jpg"/>
+                </figure>
+                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
+                    <img alt="Gallery 7" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery7.jpg"/>
+                </figure>
+                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
+                    <img alt="Gallery 8" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery8.jpg"/>
+                </figure>
+                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
+                    <img alt="Gallery 9" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery9.jpg"/>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ REPERTORIO DUAL MARQUEE ============ -->
+    <section class="relative py-24 overflow-hidden bg-[#070707] border-y border-white/[0.07]" id="repertorio">
+        <div class="max-w-[1320px] mx-auto px-6 text-center">
+            <span class="reveal inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.4em] text-[#00FFFF]">
+                <i class="ti ti-music text-base"></i> Repertorio
+            </span>
+            <h2 class="reveal f-anton uppercase mt-3 text-[clamp(2.2rem,5.4vw,4.6rem)] gold-txt leading-[0.95]">
+                Tocamos de todo,<br/>toda la noche
+            </h2>
+            <p class="reveal mt-4 text-sm text-white/55">Pasa el cursor por las tiras y verás cómo se acelera la fiesta.</p>
+        </div>
+        
+        <div class="mt-14 space-y-5">
+            <div class="mq-hover overflow-hidden py-2 cursor-crosshair">
+                <div class="mq-track" data-mq="1" data-mq-dur="30000">
+                    <span class="f-anton flex items-center uppercase text-[clamp(2.2rem,6vw,5rem)] gold-txt hover:text-white transition-colors">
+                        <span class="px-7">Cumbia</span><i class="ti ti-star-filled text-[#FF0080] text-[22px]"></i>
+                        <span class="px-7">Huayno</span><i class="ti ti-star-filled text-[#FF0080] text-[22px]"></i>
+                        <span class="px-7">Marinera</span><i class="ti ti-star-filled text-[#FF0080] text-[22px]"></i>
+                        <span class="px-7">Salsa</span><i class="ti ti-star-filled text-[#FF0080] text-[22px]"></i>
+                        <span class="px-7">Merengue</span><i class="ti ti-star-filled text-[#FF0080] text-[22px]"></i>
+                    </span>
+                    <span aria-hidden="true" class="f-anton flex items-center uppercase text-[clamp(2.2rem,6vw,5rem)] gold-txt hover:text-white transition-colors">
+                        <span class="px-7">Cumbia</span><i class="ti ti-star-filled text-[#FF0080] text-[22px]"></i>
+                        <span class="px-7">Huayno</span><i class="ti ti-star-filled text-[#FF0080] text-[22px]"></i>
+                        <span class="px-7">Marinera</span><i class="ti ti-star-filled text-[#FF0080] text-[22px]"></i>
+                        <span class="px-7">Salsa</span><i class="ti ti-star-filled text-[#FF0080] text-[22px]"></i>
+                        <span class="px-7">Merengue</span><i class="ti ti-star-filled text-[#FF0080] text-[22px]"></i>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="mq-hover overflow-hidden py-2 cursor-crosshair">
+                <div class="mq-track" data-mq="-1" data-mq-dur="34000">
+                    <span class="f-anton flex items-center uppercase text-[clamp(2.2rem,6vw,5rem)] cyan-outline hover:text-[#00FFFF] transition-colors">
+                        <span class="px-7">Chicha</span><i class="ti ti-music text-[#D4AF37] text-[22px]"></i>
+                        <span class="px-7">Tondero</span><i class="ti ti-music text-[#D4AF37] text-[22px]"></i>
+                        <span class="px-7">Festejo</span><i class="ti ti-music text-[#D4AF37] text-[22px]"></i>
+                        <span class="px-7">San Juanero</span><i class="ti ti-music text-[#D4AF37] text-[22px]"></i>
+                        <span class="px-7">Huaylas</span><i class="ti ti-music text-[#D4AF37] text-[22px]"></i>
+                    </span>
+                    <span aria-hidden="true" class="f-anton flex items-center uppercase text-[clamp(2.2rem,6vw,5rem)] cyan-outline hover:text-[#00FFFF] transition-colors">
+                        <span class="px-7">Chicha</span><i class="ti ti-music text-[#D4AF37] text-[22px]"></i>
+                        <span class="px-7">Tondero</span><i class="ti ti-music text-[#D4AF37] text-[22px]"></i>
+                        <span class="px-7">Festejo</span><i class="ti ti-music text-[#D4AF37] text-[22px]"></i>
+                        <span class="px-7">San Juanero</span><i class="ti ti-music text-[#D4AF37] text-[22px]"></i>
+                        <span class="px-7">Huaylas</span><i class="ti ti-music text-[#D4AF37] text-[22px]"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FLYERS POLAROID ============ -->
+    <section class="relative py-24 overflow-hidden">
+        <div class="max-w-[1320px] mx-auto px-6">
+            <div class="flex flex-wrap items-end justify-between gap-6">
+                <div>
+                    <span class="reveal inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.4em] text-[#00FFFF]">
+                        <i class="ti ti-photo text-base"></i> Flyers
+                    </span>
+                    <h2 class="reveal f-anton uppercase mt-3 text-[clamp(2.4rem,6vw,5.2rem)] leading-[0.9] gold-txt">
+                        Arrastra<br/><span class="pink-outline">los afiches</span>
+                    </h2>
+                </div>
+                <p class="reveal max-w-xs text-sm text-white/60">Sí, se mueven. Agárralos y tíralos donde quieras.</p>
+            </div>
+            
+            <div class="relative mt-10 h-[680px] md:h-[720px] rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_50%_40%,rgba(212,175,55,.10),transparent_60%)] overflow-hidden" id="flyer-board">
+                <span class="absolute inset-0 grid place-items-center f-anton uppercase text-[clamp(3rem,12vw,10rem)] text-white/[0.04] select-none pointer-events-none">
+                    Mi Bambamarca
+                </span>
+                
+                <div class="polaroid left-[4%] top-[8%] rotate-[-7deg] w-[230px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
+                    <div class="aspect-[4/5] overflow-hidden bg-black">
+                        <img alt="La banda completa" class="h-full w-full object-cover" src="assets/foto2.jpeg"/>
+                    </div>
+                    <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Bambamarca 2026</p>
+                </div>
+                
+                <div class="polaroid left-[27%] top-[26%] rotate-[5deg] w-[215px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
+                    <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
+                        <img alt="Logo" class="w-full h-auto" src="assets/logo.png"/>
+                    </div>
+                    <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Nueva generación</p>
+                </div>
+                
+                <div class="polaroid left-[48%] top-[10%] rotate-[-3deg] w-[225px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
+                    <div class="aspect-[4/5] overflow-hidden bg-black">
+                        <img alt="Foto 1" class="h-full w-full object-cover" src="assets/foto1.jpeg"/>
+                    </div>
+                    <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Virgen del Carmen</p>
+                </div>
+                
+                <div class="polaroid left-[66%] top-[34%] rotate-[8deg] w-[210px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
+                    <div class="aspect-[4/5] overflow-hidden bg-black">
+                        <img alt="Gallery 10" class="h-full w-full object-cover" src="assets/gallery10.jpg"/>
+                    </div>
+                    <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Pasacalle Chota</p>
+                </div>
+                
+                <div class="polaroid left-[14%] top-[52%] rotate-[3deg] w-[205px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
+                    <div class="aspect-[4/5] overflow-hidden bg-black">
+                        <img alt="Gallery 11" class="h-full w-full object-cover" src="assets/gallery11.jpg"/>
+                    </div>
+                    <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Metales al 100</p>
+                </div>
+                
+                <div class="polaroid left-[80%] top-[6%] rotate-[-10deg] w-[195px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
+                    <div class="aspect-[4/5] overflow-hidden bg-black">
+                        <img alt="Gallery 8" class="h-full w-full object-cover" src="assets/gallery8.jpg"/>
+                    </div>
+                    <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Celendín</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="relative py-24 md:py-32 overflow-hidden noise-bg border-t border-white/[0.07]" id="contacto">
+        <div class="max-w-[1320px] mx-auto px-6 text-center">
+            <span class="reveal inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.4em] text-[#00FFFF]">
+                <i class="ti ti-brand-whatsapp text-base"></i> Contratos 2026
+            </span>
+            <h2 class="reveal f-anton uppercase mt-4 text-[clamp(2.8rem,9vw,8rem)] leading-[0.86]">
+                <span class="gold-txt block">¿Listos para</span>
+                <span class="pink-outline block hover:text-[#FF0080] transition-colors duration-500">gozar?</span>
+            </h2>
+            <p class="reveal mt-6 max-w-2xl mx-auto text-base md:text-lg text-white/70">
+                Un mensaje y te decimos disponibilidad, número de músicos y precio para tu fiesta patronal, aniversario o matrimonio.
+            </p>
+            <a class="press-btn mt-10 inline-flex items-center gap-4 rounded-full bg-[#00FF7F] text-black pl-8 pr-10 py-5 md:py-6 shadow-[0_0_0_2px_#00FF7F,0_0_40px_rgba(0,255,127,.4)] hover:scale-105 transition-transform" href="https://wa.me/51957678804" id="mega-cta" target="_blank">
+                <i class="ti ti-brand-whatsapp text-[38px] md:text-[46px] animate-bounce"></i>
+                <span class="text-left">
+                    <span class="block f-anton uppercase text-[26px] md:text-[38px] leading-none">Escríbenos al WhatsApp</span>
+                    <span class="block text-[13px] md:text-sm font-semibold tracking-[0.14em] uppercase mt-1">
+                        +51 957 678 804 · Abner Caruajulca
+                    </span>
+                </span>
+            </a>
+            
+            <div class="mt-14 grid md:grid-cols-3 gap-4 text-left">
+                <a class="reveal group rounded-2xl border border-[#D4AF37]/35 bg-white/[0.03] p-6 gold-edge hover:border-[#FF0080] transition-colors" href="tel:+51957678804">
+                    <i class="ti ti-phone text-[26px] text-[#F0CB56] group-hover:text-[#FF0080] transition-colors"></i>
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-white/45 mt-4">Teléfono</p>
+                    <p class="f-anton uppercase text-[24px] text-white mt-1">+51 957 678 804</p>
+                </a>
+                <a class="reveal group rounded-2xl border border-[#D4AF37]/35 bg-white/[0.03] p-6 gold-edge hover:border-[#FF0080] transition-colors" href="mailto:acaruajulcaaguilar@gmail.com">
+                    <i class="ti ti-mail text-[26px] text-[#F0CB56] group-hover:text-[#FF0080] transition-colors"></i>
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-white/45 mt-4">Correo</p>
+                    <p class="font-semibold text-[15px] text-white mt-2 break-all">acaruajulcaaguilar@gmail.com</p>
+                </a>
+                <div class="reveal rounded-2xl border border-[#D4AF37]/35 bg-white/[0.03] p-6 gold-edge hover:border-[#00FFFF] transition-colors group">
+                    <i class="ti ti-map-pin text-[26px] text-[#F0CB56] group-hover:text-[#00FFFF] transition-colors"></i>
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-white/45 mt-4">Dirección</p>
+                    <p class="font-semibold text-[15px] text-white mt-2 leading-snug">
+                        Jaime de Martínez #519<br/>Bambamarca, Cajamarca, Perú 06001
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="relative border-t border-[#D4AF37]/25 bg-black pt-16 pb-10">
+        <div class="max-w-[1320px] mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12">
+                <div class="text-center lg:text-left">
+                    <img alt="Logo Gran Banda" class="w-[280px] h-auto mx-auto lg:mx-0 hover:scale-105 transition-transform" src="assets/logo.png"/>
+                    <p class="mt-4 text-sm text-white/55 max-w-sm">
+                        Orquesta típica de Bambamarca, Cajamarca. Dirección: Abner Caruajulca Aguilar.
+                    </p>
+                </div>
+                <div class="text-center lg:text-left">
+                    <p class="f-anton uppercase text-[22px] gold-txt">Sonamos como todo el continente</p>
+                    <p class="mt-2 text-sm text-white/55 max-w-sm">
+                        Perú, Chile, Colombia, Uruguay, Argentina, Ecuador y Brasil: los ritmos que llevamos en el repertorio.
+                    </p>
+                    <div class="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+                        <img alt="Perú" class="flag-chip hover:scale-110 transition-transform" src="https://flagcdn.com/w80/pe.png" title="Perú"/>
+                        <img alt="Chile" class="flag-chip hover:scale-110 transition-transform" src="https://flagcdn.com/w80/cl.png" title="Chile"/>
+                        <img alt="Colombia" class="flag-chip hover:scale-110 transition-transform" src="https://flagcdn.com/w80/co.png" title="Colombia"/>
+                        <img alt="Uruguay" class="flag-chip hover:scale-110 transition-transform" src="https://flagcdn.com/w80/uy.png" title="Uruguay"/>
+                        <img alt="Argentina" class="flag-chip hover:scale-110 transition-transform" src="https://flagcdn.com/w80/ar.png" title="Argentina"/>
+                        <img alt="Ecuador" class="flag-chip hover:scale-110 transition-transform" src="https://flagcdn.com/w80/ec.png" title="Ecuador"/>
+                        <img alt="Brasil" class="flag-chip hover:scale-110 transition-transform" src="https://flagcdn.com/w80/br.png" title="Brasil"/>
+                    </div>
+                </div>
+                <div class="text-center lg:text-left">
+                    <p class="text-[10px] uppercase tracking-[0.32em] text-white/40">Síguenos</p>
+                    <a class="press-btn mt-4 inline-flex items-center gap-3 rounded-full border border-[#00FFFF]/50 px-5 py-3 text-[#00FFFF] text-sm font-bold uppercase tracking-[0.14em] hover:bg-[#00FFFF]/10 transition-colors" href="https://www.facebook.com/share/1HYmucZcc7/" target="_blank">
+                        <i class="ti ti-brand-facebook text-xl"></i> Facebook
+                    </a>
+                    <div class="mt-6 flex flex-col gap-1.5 text-sm text-white/55">
+                        <a class="hover:text-[#F0CB56] transition-colors" href="#videos">Videos</a>
+                        <a class="hover:text-[#F0CB56] transition-colors" href="#galeria">Galería</a>
+                        <a class="hover:text-[#F0CB56] transition-colors" href="#repertorio">Repertorio</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-14 h-px gold-rule"></div>
+            <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-[12px] text-white/40">
+                <p>© 2026 Gran Banda Mi Bambamarca · Todos los derechos reservados.</p>
+                <p class="flex items-center gap-2">
+                    <i class="ti ti-music text-[#D4AF37]"></i> Bambamarca · Cajamarca · Perú
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ WHATSAPP FLOTANTE ============ -->
+    <a class="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-full bg-[#00FF7F] text-black pl-4 pr-5 py-3.5 shadow-[0_0_0_2px_#00FF7F,0_0_34px_rgba(0,255,127,.45)] hover:scale-105 transition-transform" href="https://wa.me/51957678804" id="wa-float" target="_blank">
+        <i class="ti ti-brand-whatsapp text-[28px]"></i>
+        <span class="hidden sm:block text-left leading-tight">
+            <span class="block text-[10px] font-bold uppercase tracking-[0.22em]">Contratos</span>
+            <span class="block f-anton uppercase text-[17px]">957 678 804</span>
+        </span>
+    </a>
   </div>
-</header>
 
-<main id="top">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <link href="https://unpkg.com/lenis@1/dist/lenis.css" rel="stylesheet"/>
+  
+  <script type="module">
+    import Lenis from "https://esm.sh/lenis@1";
+    import { animate, createDraggable, spring } from 'https://esm.sh/animejs@4';
 
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="nosotros">
-    <div class="wrap hero-inner">
-      <img class="hero-logo" src="assets/hero.png" alt="Gran Banda Mi Bambamarca">
-      <h1 class="hero-slogan">
-        <span class="gold-text">La Mejor Experiencia</span>
-        <span class="sub">Siente la energía de la Nueva Generación. Un show visual y sonoro diseñado para el éxito de tu fiesta.</span>
-      </h1>
-      <div class="hero-cta-row">
-        <a href="https://wa.me/51957678804" target="_blank" class="cta-big">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.305-.885-.653-1.482-1.459-1.656-1.757-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.333.158 11.883c0 2.097.546 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.332 11.893-11.884a11.825 11.825 0 0 0-3.48-8.413Z"/></svg>
-          Contratar Ahora
-        </a>
-      </div>
-    </div>
-  </section>
+    gsap.registerPlugin(ScrollTrigger);
 
-  <!-- ============ MARQUEE ============ -->
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>NUEVA GENERACIÓN</span><span>★</span>
-      <span>GRAN BANDA MI BAMBAMARCA</span><span>★</span>
-      <span>LA MEJOR MÚSICA</span><span>★</span>
-      <span>NUEVA GENERACIÓN</span><span>★</span>
-      <span>GRAN BANDA MI BAMBAMARCA</span><span>★</span>
-      <span>LA MEJOR MÚSICA</span><span>★</span>
-    </div>
-  </div>
+    /* ---------- Smooth scroll ---------- */
+    const lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1.05 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((t) => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
 
-  <!-- ============ INFO / CONTACTO ============ -->
-  <section id="contacto" class="info">
-    <div class="wrap">
-      <header class="sec-head">
-        <h2>Información y <span class="gold-text">Contacto</span></h2>
-      </header>
-      <div class="info-grid">
-        <div class="info-card">
-          <div class="ic">📍</div>
-          <h3>Ubicación</h3>
-          <p class="val">Jaime de Martines #519<br>Bambamarca</p>
-        </div>
-        <div class="info-card">
-          <div class="ic">📱</div>
-          <h3>WhatsApp</h3>
-          <a href="https://wa.me/51957678804" class="val" target="_blank">+51 957 678 804</a>
-        </div>
-        <div class="info-card">
-          <div class="ic">✉️</div>
-          <h3>Correo</h3>
-          <a href="mailto:acaruajulcaaguilar@gmail.com" class="val">acaruajulcaaguilar@gmail.com</a>
-        </div>
-        <div class="info-card">
-          <div class="ic">🎵</div>
-          <h3>Estilo</h3>
-          <p class="val">Nueva Generación</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const el = document.querySelector(a.getAttribute('href'));
+        if (!el) return;
+        e.preventDefault();
+        lenis.scrollTo(el, { offset: -90, duration: 1.1 });
+      });
+    });
 
-  <!-- ============ MEDIA ============ -->
-  <section id="media" class="media">
-    <div class="wrap">
-      <header class="sec-head">
-        <h2>Experiencia <span class="gold-text">En Vivo</span></h2>
-      </header>
-      <div class="media-grid">
-        <article class="media-cell reel reel-1">
-          <span class="tag">Video</span>
-          <video src="assets/vid1.mp4" autoplay loop muted playsinline></video>
-        </article>
-        <article class="media-cell reel reel-2">
-          <span class="tag">Video</span>
-          <video src="assets/vid2.mp4" autoplay loop muted playsinline></video>
-        </article>
-        <article class="media-cell reel reel-3">
-          <span class="tag">Video</span>
-          <video src="assets/vid3.mp4" autoplay loop muted playsinline></video>
-        </article>
-        <article class="media-cell photo-a">
-          <span class="tag">Foto</span>
-          <img src="assets/img1.jpeg" alt="Presentación en vivo">
-        </article>
-        <article class="media-cell photo-b">
-          <span class="tag">Foto</span>
-          <img src="assets/img2.jpeg" alt="Show y energía">
-        </article>
-      </div>
-    </div>
-  </section>
+    /* ---------- Hero entrance ---------- */
+    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    heroTl.from('#hero-logo', { autoAlpha: 0, y: 40, scale: 0.92, duration: 0.9 })
+          .from('.hero-el', { autoAlpha: 0, y: 26, duration: 0.6, stagger: 0.09 }, '-=0.45');
 
-  <!-- ============ CTA FINAL ============ -->
-  <section class="final-cta">
-    <div class="wrap">
-      <h2>¿Listo para la <br>Mejor Fiesta?</h2>
-      <a href="https://wa.me/51957678804" target="_blank" class="cta-big">Reserva tu fecha</a>
-    </div>
-  </section>
+    /* hero parallax */
+    gsap.to('#top video', {
+      yPercent: 12, ease: 'none',
+      scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: true }
+    });
+    gsap.to('#top .relative.z-10', {
+      yPercent: -6, ease: 'none',
+      scrollTrigger: { trigger: '#top', start: 'center top', end: 'bottom top', scrub: true }
+    });
 
-</main>
+    /* notas flotantes */
+    document.querySelectorAll('.float-note').forEach((n, i) => {
+      animate(n, { translateY: [0, -18], rotate: [-6, 6], duration: 2600 + i * 500, alternate: true, loop: true, ease: 'inOut(2)' });
+    });
 
-<footer>
-  <div class="wrap">
-    <div class="brand">Gran Banda Mi Bambamarca</div>
-    <p>&copy; 2024. Todos los derechos reservados.</p>
-  </div>
-</footer>
+    
+    /* ---------- Reels: focus the centered card ---------- */
+    const track = document.getElementById("reel-scroll");
+    if (track) {
+        const cards = [...track.querySelectorAll(".reel-card")];
+        function focusCenter() {
+            const mid = track.scrollLeft + track.clientWidth / 2;
+            cards.forEach((c) => {
+                const cc = c.offsetLeft + c.offsetWidth / 2;
+                const d = Math.min(Math.abs(cc - mid) / (c.offsetWidth * 1.35), 1);
+                const s = 1 - d * 0.14;
+                c.style.transform = "scale(" + s.toFixed(3) + ")";
+                c.style.opacity = (1 - d * 0.62).toFixed(3);
+                c.style.filter = "saturate(" + (1 - d * 0.6).toFixed(2) + ") blur(" + (d * 1.6).toFixed(2) + "px)";
+            });
+        }
+        track.addEventListener("scroll", () => requestAnimationFrame(focusCenter), { passive: true });
+        window.addEventListener("resize", focusCenter);
+        requestAnimationFrame(() => {
+            if (cards.length > 1) {
+                track.scrollLeft = cards[1].offsetLeft - (track.clientWidth - cards[1].offsetWidth) / 2;
+            }
+            focusCenter();
+        });
 
-<a href="https://wa.me/51957678804" target="_blank" class="sticky-wa">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.305-.885-.653-1.482-1.459-1.656-1.757-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.333.158 11.883c0 2.097.546 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.332 11.893-11.884a11.825 11.825 0 0 0-3.48-8.413Z"/></svg>
-  Contratar
-</a>
+        /* Reel navigation buttons */
+        document.querySelector('[data-reel="prev"]')?.addEventListener('click', () => {
+            const step = (track.querySelector('.reel-card')?.offsetWidth || 312) + 20;
+            track.scrollBy({ left: -step, behavior: 'smooth' });
+        });
+        document.querySelector('[data-reel="next"]')?.addEventListener('click', () => {
+            const step = (track.querySelector('.reel-card')?.offsetWidth || 312) + 20;
+            track.scrollBy({ left: step, behavior: 'smooth' });
+        });
+    }
+
+    /* ---------- Reveals ---------- */
+    gsap.set('.reveal', { autoAlpha: 0, y: 26 });
+    ScrollTrigger.batch('.reveal', {
+      start: 'top 88%', batchMax: 6, interval: 0.08,
+      onEnter: (els) => gsap.to(els, { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.07, ease: 'power3.out', overwrite: true })
+    });
+
+    gsap.set('.wall-cell', { autoAlpha: 0, y: 34, scale: 0.96 });
+    ScrollTrigger.batch('.wall-cell', {
+      start: 'top 90%', batchMax: 8, interval: 0.06,
+      onEnter: (els) => gsap.to(els, { autoAlpha: 1, y: 0, scale: 1, duration: 0.65, stagger: 0.05, ease: 'power3.out', overwrite: true })
+    });
+
+
+    gsap.set('.polaroid', { autoAlpha: 0, scale: 0.8, rotate: 0 });
+    ScrollTrigger.create({
+      trigger: '#flyer-board', start: 'top 80%', once: true,
+      onEnter: () => gsap.to('.polaroid', { autoAlpha: 1, scale: 1, duration: 0.7, stagger: 0.08, ease: 'back.out(1.7)' })
+    });
+
+    /* ---------- Marquesinas ---------- */
+    document.querySelectorAll('.mq-track').forEach((track) => {
+      const dir = Number(track.dataset.mq) || 1;
+      const dur = Number(track.dataset.mqDur) || 26000;
+      const from = dir > 0 ? ['0%', '-50%'] : ['-50%', '0%'];
+      const inst = animate(track, { x: from, duration: dur, loop: true, ease: 'linear' });
+      const hoverHost = track.closest('.mq-hover');
+      if (hoverHost) {
+        hoverHost.addEventListener('pointerenter', () => { inst.speed = 2.6; });
+        hoverHost.addEventListener('pointerleave', () => { inst.speed = 1; });
+      }
+    });
+
+    /* ---------- Reel: hover logic removed as it conflicts with focusCenter ---------- */
+    /* ---------- Polaroids arrastrables ---------- */
+    document.querySelectorAll('.polaroid').forEach((p) => {
+      createDraggable(p, {
+        container: '#flyer-board',
+        releaseStiffness: 110,
+        releaseDamping: 16,
+        maxVelocity: 2,
+        onGrab: () => { p.style.zIndex = 40; animate(p, { scale: 1.05, duration: 180, ease: 'out(3)' }); },
+        onRelease: () => { animate(p, { scale: 1, duration: 260, ease: 'out(3)' }); }
+      });
+    });
+
+    /* ---------- Botones: press + pulso ---------- */
+    document.querySelectorAll('.press-btn').forEach((b) => {
+      b.addEventListener('pointerdown', () => animate(b, { scale: 0.94, duration: 100, ease: 'out(3)' }));
+      b.addEventListener('pointerup', () => animate(b, { scale: 1, ease: spring({ stiffness: 220, damping: 12 }) }));
+      b.addEventListener('pointerleave', () => animate(b, { scale: 1, duration: 200, ease: 'out(3)' }));
+    });
+
+    animate('#wa-float', { scale: [1, 1.06], duration: 1400, ease: 'inOut(2)', alternate: true, loop: true });
+    
+    /* ---------- Header compacto al bajar ---------- */
+    const header = document.getElementById('site-header');
+    ScrollTrigger.create({
+      start: 'top -120',
+      onEnter: () => gsap.to(header, { paddingTop: 8, duration: 0.3, ease: 'power2.out' }),
+      onLeaveBack: () => gsap.to(header, { paddingTop: 16, duration: 0.3, ease: 'power2.out' })
+    });
+
+    ScrollTrigger.refresh();
+  </script>
 </body>
 </html>
