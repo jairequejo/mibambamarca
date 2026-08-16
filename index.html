@@ -101,8 +101,7 @@
     }
 
 
-    @keyframes spinSlow { to { transform: rotate(360deg); } }
-    .spin-slow { animation: spinSlow 26s linear infinite; }
+
   </style>
 </head>
 <body>
@@ -649,11 +648,7 @@
       onEnter: (els) => gsap.to(els, { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.07, ease: 'power3.out', overwrite: true })
     });
 
-    gsap.set('.wall-cell', { autoAlpha: 0, y: 34, scale: 0.96 });
-    ScrollTrigger.batch('.wall-cell', {
-      start: 'top 90%', batchMax: 8, interval: 0.06,
-      onEnter: (els) => gsap.to(els, { autoAlpha: 1, y: 0, scale: 1, duration: 0.65, stagger: 0.05, ease: 'power3.out', overwrite: true })
-    });
+
 
 
     gsap.set('.polaroid', { autoAlpha: 0, y: 60 });
@@ -675,7 +670,7 @@
       }
     });
 
-    /* ---------- Reel: hover logic removed as it conflicts with focusCenter ---------- */
+
     /* ---------- Polaroids arrastrables ---------- */
     let polaroidZIndex = 40;
     document.querySelectorAll('.polaroid').forEach((p) => {
@@ -798,6 +793,7 @@
             const id = getRandomImageId();
             const img = document.createElement('img');
             img.src = `assets/gallery/gallery${id}.jpg`;
+            img.alt = `Presentación en vivo Gran Banda Mi Bambamarca - Foto ${id}`;
             img.className = 'absolute inset-0 h-full w-full object-cover object-[center_25%] filter brightness-[0.7] group-hover:brightness-110 group-hover:scale-105 transition-all duration-700 pointer-events-none';
             figure.appendChild(img);
           }
