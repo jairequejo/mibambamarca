@@ -217,7 +217,7 @@
         <div class="reel-scroll relative mt-6 flex gap-5 overflow-x-auto snap-x snap-mandatory px-6 md:px-12 py-6 transition-none scroll-pl-6 md:scroll-pl-12 w-max max-w-full mx-auto" id="reel-scroll">
             <!-- Video 1 -->
             <article class="reveal reel-card snap-start shrink-0 w-[300px] md:w-[360px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group transition-all duration-500">
-                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" muted playsinline preload="auto" poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid1.mp4"></video>
+                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loop muted playsinline autoplay preload="auto" poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid1.mp4"></video>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
                 
                 <div class="play-overlay md:hidden absolute inset-0 bg-black/40 backdrop-blur-[2px] flex flex-col items-center justify-center transition-opacity duration-300 pointer-events-none opacity-0 z-20">
@@ -235,7 +235,7 @@
             
             <!-- Video 2 -->
             <article class="reveal reel-card snap-start shrink-0 w-[300px] md:w-[360px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group transition-all duration-500">
-                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" muted playsinline preload="auto" poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid2.mp4"></video>
+                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loop muted playsinline autoplay preload="auto" poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid2.mp4"></video>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
                 
                 <div class="play-overlay md:hidden absolute inset-0 bg-black/40 backdrop-blur-[2px] flex flex-col items-center justify-center transition-opacity duration-300 pointer-events-none opacity-0 z-20">
@@ -253,7 +253,7 @@
 
             <!-- Video 3 -->
             <article class="reveal reel-card snap-start shrink-0 w-[300px] md:w-[360px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group transition-all duration-500">
-                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" muted playsinline preload="auto" poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid3.mp4"></video>
+                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loop muted playsinline autoplay preload="auto" poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid3.mp4"></video>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
                 
                 <div class="play-overlay md:hidden absolute inset-0 bg-black/40 backdrop-blur-[2px] flex flex-col items-center justify-center transition-opacity duration-300 pointer-events-none opacity-0 z-20">
@@ -628,6 +628,7 @@
                     card.style.zIndex = '10';
                     if (vid) {
                         vid.muted = false;
+                        vid.loop = false; // Quitar el loop infinito al video principal para el auto-avance
                         const p = vid.play();
                         if (p !== undefined) {
                             p.catch(()=>{
@@ -650,8 +651,15 @@
                     card.style.zIndex = '1';
                     if (vid) {
                         vid.muted = true;
-                        // Pausar si no es la activa
-                        vid.pause();
+                        vid.loop = true; // Activar loop infinito en videos de fondo
+                        // En desktop (donde activeCard puede ser null al inicio), no pausamos forzosamente 
+                        // si queremos que se muevan de fondo. Pero si queremos evitar ruido mental, mejor pausarlo.
+                        // El usuario de PC prefiere verlos moverse:
+                        if (window.innerWidth > 768) {
+                            vid.play().catch(()=>{});
+                        } else {
+                            vid.pause();
+                        }
                     }
                     if (overlay) overlay.style.opacity = '0';
                 }
