@@ -658,20 +658,6 @@
             });
         });
 
-        // Observador 1: Solo para reproducir/pausar según visibilidad en la pantalla (Viewport)
-        const playObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const vid = entry.target;
-                if (entry.isIntersecting) {
-                    vid.dataset.isVisible = "true";
-                    vid.play().catch(()=>{});
-                } else {
-                    vid.dataset.isVisible = "";
-                    vid.pause();
-                }
-            });
-        }, { threshold: 0.2 });
-
         // Observador 2: Solo para el efecto TikTok según visibilidad dentro del contenedor horizontal (Track)
         const focusObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -696,7 +682,6 @@
         }, { root: track, threshold: 0.6 });
 
         videos.forEach(v => {
-            playObserver.observe(v);
             focusObserver.observe(v);
         });
 
