@@ -629,7 +629,18 @@
                     if (vid) {
                         vid.muted = false;
                         const p = vid.play();
-                        if (p !== undefined) p.catch(()=>{});
+                        if (p !== undefined) {
+                            p.catch(()=>{
+                                // VITAL: Si Safari bloquea el autoplay inicial, debemos mostrar el botón.
+                                if (overlay) {
+                                    overlay.style.opacity = '1';
+                                    const icon = overlay.querySelector('i');
+                                    const text = overlay.querySelector('span');
+                                    if (icon) icon.className = 'ti ti-player-play-filled text-2xl text-white ml-1';
+                                    if (text) text.innerText = 'REPRODUCIR';
+                                }
+                            });
+                        }
                     }
                 } else {
                     card.style.transform = activeCard ? 'scale(0.96)' : 'scale(1)';
