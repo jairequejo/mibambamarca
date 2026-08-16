@@ -2,8 +2,42 @@
 <html lang="es"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gran Banda Mi Bambamarca</title>
-  <meta name="description" content="Orquesta típica de Bambamarca, Cajamarca. Contratos 2026.">
+  <!-- SEO Básico y Posicionamiento -->
+  <title>Gran Banda Mi Bambamarca | Orquesta para Fiestas Patronales en Cajamarca</title>
+  <meta name="description" content="La mejor banda de músicos en Bambamarca, Cajamarca. Garantizamos el fiestón de tu patronal, aniversario o evento. Contratos 2026. Hacemos retumbar la plaza.">
+  <meta name="keywords" content="bandas de músicos en Cajamarca, Gran Banda Mi Bambamarca, orquesta típica Cajamarca, música para fiestas patronales, contratos banda 2026, orquesta Bambamarca, mejor banda de chota">
+  <meta name="author" content="Gran Banda Mi Bambamarca">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Redes Sociales (Facebook, WhatsApp, Instagram) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gran Banda Mi Bambamarca | El peso pesado de las patronales">
+  <meta property="og:description" content="¿Fiesta patronal en Cajamarca? Contrata a la Gran Banda Mi Bambamarca. 20 músicos de élite que hacen retumbar la plaza entera.">
+  <meta property="og:image" content="assets/backgrounds/foto2.jpeg">
+  <meta property="og:locale" content="es_PE">
+
+  <!-- Schema.org para Google y Gemini (Entidad Musical/Local) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Gran Banda Mi Bambamarca",
+    "description": "Orquesta típica de Bambamarca, Cajamarca especializada en fiestas patronales, aniversarios y eventos de gran magnitud.",
+    "image": "assets/brand/logo.png",
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Bambamarca, Cajamarca, Perú"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+51-957678804",
+      "contactType": "Contratos y Ventas",
+      "areaServed": "PE",
+      "availableLanguage": "Spanish"
+    }
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="assets/brand/logo.png">
   <script src="https://unpkg.com/@tailwindcss/browser@4.3.3/dist/index.global.js" integrity="sha384-2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB" crossorigin="anonymous"></script>
   
@@ -28,6 +62,7 @@
     .pink-outline {
       color: transparent;
       -webkit-text-stroke: 2px #FF0080;
+      text-shadow: 0 0 22px rgba(255,0,128,.45);
     }
     .gold-rule { background: linear-gradient(90deg, transparent, #D4AF37 20%, #F5DE8A 50%, #D4AF37 80%, transparent); }
     .neon-pink-glow { box-shadow: 0 0 0 2px #FF0080, 0 0 24px rgba(255,0,128,.55), 0 0 60px rgba(255,0,128,.28); }
@@ -105,9 +140,8 @@
                 Nueva Generación
             </span>
             <h1 class="f-anton mt-6 uppercase leading-[0.86]">
-                <span class="hero-el block gold-txt text-[clamp(2.6rem,7.6vw,7.4rem)]">Les haremos bailar</span>
-                <span class="hero-el block cyan-outline text-[clamp(2.4rem,7vw,6.8rem)] hover:text-[#00FFFF] transition-colors duration-300">y gozar a ritmo</span>
-                <span class="hero-el block gold-txt text-[clamp(2.6rem,7.6vw,7.4rem)]">de banda</span>
+                <span class="hero-el block gold-txt text-[clamp(3.2rem,8.5vw,8.5rem)]">Hacemos retumbar</span>
+                <span class="hero-el block cyan-outline text-[clamp(2.8rem,7.5vw,7.5rem)] hover:text-[#00FFFF] transition-colors duration-300">la plaza entera</span>
             </h1>
             <p class="hero-el mt-7 max-w-2xl text-[15px] md:text-lg text-white/75 font-medium">
                 Orquesta típica de
@@ -119,7 +153,7 @@
                     <i class="ti ti-brand-whatsapp text-[26px]"></i>
                     ¡Contratos 2026!
                 </a>
-                <a class="press-btn f-anton uppercase text-[17px] md:text-[19px] tracking-wide rounded-full border border-[#D4AF37]/70 bg-black/45 text-[#F0CB56] px-7 py-4 flex items-center gap-3 hover:bg-[#D4AF37]/20 transition-colors" href="#videos">
+                <a class="press-btn f-anton uppercase text-[17px] md:text-[19px] tracking-wide rounded-full border border-[#D4AF37]/70 bg-black/45 text-[#F0CB56] px-7 py-4 flex items-center gap-3 hover:bg-[#D4AF37]/20 transition-colors" href="#videos" id="btn-ver-banda" data-offset="15">
                     <i class="ti ti-player-play-filled text-[19px]"></i>
                     Ver a la banda
                 </a>
@@ -154,12 +188,12 @@
                     <i class="ti ti-flame text-base"></i> En vivo · sin filtros
                 </span>
                 <h2 class="reveal f-anton uppercase mt-3 text-[clamp(2.4rem,6vw,5.2rem)] leading-[0.9] gold-txt">
-                    Así sonamos<br/><span class="cyan-outline">en la fiesta</span>
+                    Potencia<br/><span class="cyan-outline">y Jerarquía</span>
                 </h2>
             </div>
             <div class="flex items-center gap-3">
                 <p class="reveal hidden md:block max-w-xs text-sm text-white/60 mr-2">
-                    Videos grabados en plena fiesta patronal. Sube el volumen y decide.
+                    Audio real. Sin edición de estudio. Escucha el poder sonoro que domina las mejores fiestas del país.
                 </p>
                 <button class="press-btn grid place-items-center h-12 w-12 rounded-full border border-[#D4AF37]/60 text-[#F0CB56] hover:bg-[#D4AF37]/15 transition-colors" data-reel="prev">
                     <i class="ti ti-arrow-left text-xl"></i>
@@ -297,10 +331,10 @@
                         <i class="ti ti-photo text-base"></i> Flyers
                     </span>
                     <h2 class="reveal f-anton uppercase mt-3 text-[clamp(2.4rem,6vw,5.2rem)] leading-[0.9] gold-txt">
-                        Arrastra<br/><span class="pink-outline">los afiches</span>
+                        Historial<br/><span class="pink-outline">de Éxito</span>
                     </h2>
                 </div>
-                <p class="reveal max-w-xs text-sm text-white/60">Sí, se mueven. Agárralos y tíralos donde quieras.</p>
+                <p class="reveal max-w-xs text-sm text-white/60">Cientos de compromisos cumplidos a nivel nacional. Interactúa con nuestro portafolio de confianza.</p>
             </div>
             
             <div class="relative mt-10 h-[680px] md:h-[720px] rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_50%_40%,rgba(212,175,55,.10),transparent_60%)] overflow-hidden" id="flyer-board">
@@ -308,46 +342,46 @@
                     <img src="assets/brand/logo.svg" alt="Marca de agua" class="w-[120%] md:w-[90%] h-[90%] object-contain brightness-0 invert" />
                 </div>
                 
-                <div class="polaroid left-[4%] top-[8%] rotate-[-7deg] w-[230px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
+                <div class="polaroid left-[4%] top-[8%] rotate-[-3deg] md:rotate-[-7deg] w-[150px] md:w-[230px] bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
                     <div class="aspect-[4/5] overflow-hidden bg-black">
                         <img alt="La banda completa" class="h-full w-full object-cover" src="assets/backgrounds/foto2.jpeg"/>
                     </div>
-                    <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Bambamarca 2026</p>
+                    <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">Bambamarca 2026</p>
                 </div>
                 
-                <div class="polaroid left-[27%] top-[26%] rotate-[5deg] w-[215px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
+                <div class="polaroid left-[27%] top-[26%] rotate-[2deg] md:rotate-[5deg] w-[145px] md:w-[215px] bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
                     <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
                         <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
                     </div>
-                    <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Nueva generación</p>
+                    <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">Nueva generación</p>
                 </div>
                 
-                <div class="polaroid left-[48%] top-[10%] rotate-[-3deg] w-[225px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
+                <div class="polaroid left-[48%] top-[10%] rotate-[-2deg] md:rotate-[-3deg] w-[155px] md:w-[225px] bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
                     <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
                         <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
                     </div>
-                    <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Virgen del Carmen</p>
+                    <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">Virgen del Carmen</p>
                 </div>
                 
-                <div class="polaroid left-[66%] top-[34%] rotate-[8deg] w-[210px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
+                <div class="polaroid left-[66%] top-[34%] rotate-[3deg] md:rotate-[8deg] w-[140px] md:w-[210px] bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
                     <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
                         <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
                     </div>
-                    <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Pasacalle Chota</p>
+                    <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">Pasacalle Chota</p>
                 </div>
                 
-                <div class="polaroid left-[14%] top-[52%] rotate-[3deg] w-[205px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
+                <div class="polaroid left-[14%] top-[52%] rotate-[1deg] md:rotate-[3deg] w-[135px] md:w-[205px] bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
                     <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
                         <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
                     </div>
-                    <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Metales al 100</p>
+                    <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">Metales al 100</p>
                 </div>
                 
-                <div class="polaroid left-[80%] top-[6%] rotate-[-10deg] w-[195px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
+                <div class="polaroid left-[80%] top-[6%] rotate-[-4deg] md:rotate-[-10deg] w-[130px] md:w-[195px] bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
                     <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
                         <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
                     </div>
-                    <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Celendín</p>
+                    <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">Celendín</p>
                 </div>
             </div>
         </div>
@@ -367,11 +401,11 @@
                 <i class="ti ti-brand-whatsapp text-base"></i> Contratos 2026
             </span>
             <h2 class="reveal f-anton uppercase mt-4 text-[clamp(2.8rem,9vw,8rem)] leading-[0.86]">
-                <span class="gold-txt block">¿Listos para</span>
-                <span class="pink-outline block hover:text-[#FF0080] transition-colors duration-500">gozar?</span>
+                <span class="gold-txt block">¿Listo para asegurar</span>
+                <span class="pink-outline block hover:text-[#FF0080] transition-colors duration-500">el espectáculo?</span>
             </h2>
             <p class="reveal mt-6 max-w-2xl mx-auto text-base md:text-lg text-white/70">
-                Un mensaje y te decimos disponibilidad, número de músicos y precio para tu fiesta patronal, aniversario o matrimonio.
+                Fechas 2026 agotándose. Contrata el respaldo técnico y musical que tu fiesta patronal, aniversario o evento de prestigio exige. No dejes tu inversión al azar.
             </p>
             <a class="press-btn mt-10 inline-flex items-center gap-4 rounded-full bg-[#00FF7F] text-black pl-8 pr-10 py-5 md:py-6 shadow-[0_0_0_2px_#00FF7F,0_0_40px_rgba(0,255,127,.4)] hover:scale-105 transition-transform" href="https://wa.me/51957678804" id="mega-cta" target="_blank">
                 <i class="ti ti-brand-whatsapp text-[38px] md:text-[46px] animate-bounce"></i>
@@ -483,7 +517,8 @@
         const el = document.querySelector(a.getAttribute('href'));
         if (!el) return;
         e.preventDefault();
-        lenis.scrollTo(el, { offset: -90, duration: 1.1 });
+        const offset = a.hasAttribute('data-offset') ? parseInt(a.getAttribute('data-offset')) : -30;
+        lenis.scrollTo(el, { offset: offset, duration: 1.1 });
       });
     });
 
@@ -576,7 +611,16 @@
             const step = (track.querySelector('.reel-card')?.offsetWidth || 312) + 20;
             track.scrollBy({ left: step, behavior: 'smooth' });
         });
+
+        const btnVerBanda = document.getElementById('btn-ver-banda');
+        if (btnVerBanda && cards.length > 0) {
+            btnVerBanda.addEventListener('click', () => {
+                activeCard = cards[0];
+                updateCards();
+            });
+        }
     }
+
 
     /* ---------- Reveals ---------- */
     gsap.set('.reveal', { autoAlpha: 0, y: 26 });
