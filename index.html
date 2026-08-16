@@ -563,6 +563,28 @@
 
     
     /* ---------- Reels: Click-to-Focus & Observer ---------- */
+    // Bypass vital para iOS y Modo Ahorro: Desbloquear reproducción en el primer toque real del usuario
+    let videosUnlocked = false;
+    const unlockVideos = () => {
+        if (videosUnlocked) return;
+        document.querySelectorAll('.reel-video').forEach(vid => {
+            const p = vid.play();
+            if (p !== undefined) {
+                p.catch(() => {}).then(() => {
+                    // Si el video no está en pantalla (según playObserver), lo pausamos para no gastar batería
+                    if (vid.paused === false && !vid.dataset.isVisible) {
+                        vid.pause();
+                    }
+                });
+            }
+        });
+        videosUnlocked = true;
+        document.removeEventListener('touchstart', unlockVideos);
+        document.removeEventListener('click', unlockVideos);
+    };
+    document.addEventListener('touchstart', unlockVideos, { passive: true });
+    document.addEventListener('click', unlockVideos, { passive: true });
+
     const track = document.getElementById("reel-scroll");
     if (track) {
         const cards = track.querySelectorAll('.reel-card');
@@ -611,8 +633,10 @@
             entries.forEach(entry => {
                 const vid = entry.target;
                 if (entry.isIntersecting) {
+                    vid.dataset.isVisible = "true";
                     vid.play().catch(()=>{});
                 } else {
+                    vid.dataset.isVisible = "";
                     vid.pause();
                 }
             });
