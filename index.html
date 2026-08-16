@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gran Banda Mi Bambamarca</title>
   <meta name="description" content="Orquesta típica de Bambamarca, Cajamarca. Contratos 2026.">
+  <link rel="icon" type="image/png" href="assets/brand/logo.png">
   <script src="https://unpkg.com/@tailwindcss/browser@4.3.3/dist/index.global.js" integrity="sha384-2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB" crossorigin="anonymous"></script>
   
   <style>
@@ -63,31 +64,32 @@
   </style>
 </head>
 <body>
-  <div id="root" class="f-grotesk bg-[#0A0A0A] text-white overflow-x-clip antialiased selection:bg-[#FF0080] selection:text-white">
-    <!-- ============ HEADER FLOTANTE ============ -->
-    <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-4 transition-all duration-300" id="site-header">
-        <div class="mx-auto max-w-[1320px] flex items-center gap-4 rounded-full border border-[#D4AF37]/40 bg-black/70 backdrop-blur-md px-4 py-2.5 gold-edge">
+  <div id="root" class="f-grotesk bg-[#0A0A0A] text-white overflow-x-clip antialiased selection:bg-[#FF0080] selection:text-white">    <!-- ============ HEADER FLOTANTE (Pill Design) ============ -->
+    <header class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300 pointer-events-none" id="site-header">
+        <div class="pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 rounded-full border border-white/10 bg-[#0A0A0A]/70 backdrop-blur-xl pl-5 pr-1.5 py-1.5 shadow-[0_10px_40px_rgba(0,0,0,0.8)] w-full max-w-fit">
             <a class="shrink-0 transition-transform hover:scale-105" href="#top">
-                <img alt="Logo Gran Banda Mi Bambamarca" class="h-11 w-auto drop-shadow-[0_2px_8px_rgba(0,0,0,.9)]" src="assets/logo.png"/>
+                <img alt="Logo Gran Banda Mi Bambamarca" class="h-6 sm:h-7 w-auto opacity-90 hover:opacity-100 transition-opacity" src="assets/brand/logo.png"/>
             </a>
-            <nav class="hidden lg:flex items-center gap-1 ml-2 text-[13px] font-semibold uppercase tracking-[0.14em]">
-                <a class="nav-link px-3 py-2 rounded-full text-white/70 hover:text-[#00FFFF] transition-colors" href="#videos">Videos</a>
-                <a class="nav-link px-3 py-2 rounded-full text-white/70 hover:text-[#00FFFF] transition-colors" href="#galeria">Galería</a>
-                <a class="nav-link px-3 py-2 rounded-full text-white/70 hover:text-[#00FFFF] transition-colors" href="#repertorio">Repertorio</a>
-                <a class="nav-link px-3 py-2 rounded-full text-white/70 hover:text-[#00FFFF] transition-colors" href="#contacto">Contacto</a>
+            
+            <nav class="hidden lg:flex items-center gap-1 text-[11px] font-bold uppercase tracking-[0.18em]">
+                <a class="nav-link px-4 py-2.5 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors" href="#videos">Videos</a>
+                <a class="nav-link px-4 py-2.5 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors" href="#galeria">Galería</a>
+                <a class="nav-link px-4 py-2.5 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors" href="#repertorio">Repertorio</a>
+                <a class="nav-link px-4 py-2.5 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors" href="#contacto">Contacto</a>
             </nav>
-            <div class="ml-auto flex items-center gap-3">
-                <a class="press-btn text-[13px] font-bold uppercase tracking-[0.12em] rounded-full bg-[#FF0080] text-white px-5 py-3 neon-pink-glow flex items-center gap-2 transition-transform hover:scale-105" href="https://wa.me/51957678804?text=Hola%2C%20quiero%20contratar%20a%20la%20Gran%20Banda%20Mi%20Bambamarca" rel="noopener" target="_blank">
-                    <i class="ti ti-brand-whatsapp text-[17px]"></i>
-                    Contrátanos
+            
+            <div class="flex items-center">
+                <a class="press-btn text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.15em] rounded-full bg-[#FF0080] text-white px-5 py-2.5 flex items-center gap-2 neon-pink-glow transition-transform hover:scale-105" href="https://wa.me/51957678804" target="_blank">
+                    <i class="ti ti-brand-whatsapp text-[16px]"></i>
+                    <span class="hidden sm:inline">Contratos</span>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- ============ HERO ============ -->
-    <section class="relative min-h-[860px] h-screen w-full overflow-hidden" id="top">
-        <video autoplay class="absolute inset-0 h-full w-full object-cover scale-105" loop muted playsinline poster="assets/foto2.jpeg" src="assets/vid1.mp4"></video>
+    <section class="relative min-h-[100dvh] w-full overflow-hidden" id="top">
+        <video autoplay class="absolute inset-0 h-full w-full object-cover scale-105" loop muted playsinline poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid1.mp4"></video>
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,10,10,.25),rgba(10,10,10,.9))]"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/45 to-[#0A0A0A]/75"></div>
         <div class="absolute inset-0 noise-bg mix-blend-screen opacity-70"></div>
@@ -96,8 +98,9 @@
         <i class="ti ti-music-heart absolute right-[9%] top-[34%] text-[44px] text-[#FF0080]/45 float-note"></i>
         <i class="ti ti-trumpet absolute right-[16%] bottom-[26%] text-[46px] text-[#00FFFF]/35 float-note"></i>
         
-        <div class="relative z-10 h-full max-w-[1320px] mx-auto px-6 flex flex-col items-center justify-center text-center pt-20 pb-52">
-            <img alt="Logo oficial Gran Banda Mi Bambamarca" class="w-[min(560px,80vw)] h-auto drop-shadow-[0_10px_40px_rgba(0,0,0,.9)] hover:scale-105 transition-transform duration-500" id="hero-logo" src="assets/logo.png"/>
+        <div class="relative z-10 min-h-screen w-full max-w-[1320px] mx-auto px-6 flex flex-col items-center pt-24 pb-28">
+            <div class="my-auto flex flex-col items-center text-center w-full">
+                <img alt="Logo oficial Gran Banda Mi Bambamarca" class="w-[min(560px,80vw)] h-auto drop-shadow-[0_10px_40px_rgba(0,0,0,.9)] hover:scale-105 transition-transform duration-500" id="hero-logo" src="assets/brand/logo.png"/>
             <span class="hero-el mt-4 inline-flex items-center gap-2 rounded-full border border-[#00FFFF]/60 bg-black/50 px-4 py-1.5 text-[11px] md:text-xs font-bold uppercase tracking-[0.42em] text-[#00FFFF] shadow-[0_0_15px_rgba(0,255,255,0.2)]">
                 Nueva Generación
             </span>
@@ -120,6 +123,7 @@
                     <i class="ti ti-player-play-filled text-[19px]"></i>
                     Ver a la banda
                 </a>
+            </div>
             </div>
         </div>
     </section>
@@ -166,69 +170,39 @@
             </div>
         </div>
 
-        <div class="reel-scroll relative mt-12 flex gap-5 overflow-x-auto snap-x snap-mandatory px-[calc(50%-134px)] md:px-[calc(50%-156px)] pb-6 transition-none" id="reel-scroll">
+        <div class="reel-scroll relative mt-6 flex gap-5 overflow-x-auto snap-x snap-mandatory px-6 md:px-12 py-6 transition-none scroll-pl-6 md:scroll-pl-12 w-max max-w-full mx-auto" id="reel-scroll">
             <!-- Video 1 -->
-            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group">
-                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" autoplay loop muted playsinline poster="assets/foto2.jpeg" src="assets/vid1.mp4"></video>
+            <article class="reel-card snap-start shrink-0 w-[300px] md:w-[360px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group transition-all duration-500">
+                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loop muted playsinline poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid1.mp4"></video>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
                 <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
-                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Virgen del Carmen 2026</span>
-                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Entrada de banda</h3>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Bambamarca 2026</span>
+                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">La banda en acción</h3>
                 </div>
             </article>
             
             <!-- Video 2 -->
-            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group">
-                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" autoplay loop muted playsinline poster="assets/foto2.jpeg" src="assets/vid2.mp4"></video>
+            <article class="reel-card snap-start shrink-0 w-[300px] md:w-[360px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group transition-all duration-500">
+                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loop muted playsinline poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid2.mp4"></video>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
                 <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
-                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Plaza de Bambamarca</span>
-                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Cumbia y metales</h3>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Show en vivo</span>
+                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Nuestro repertorio</h3>
                 </div>
             </article>
 
             <!-- Video 3 -->
-            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group">
-                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" autoplay loop muted playsinline poster="assets/foto2.jpeg" src="assets/vid3.mp4"></video>
+            <article class="reel-card snap-start shrink-0 w-[300px] md:w-[360px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group transition-all duration-500">
+                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loop muted playsinline poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid3.mp4"></video>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
                 <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
                     <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Fiesta patronal</span>
-                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Huayno con bombo</h3>
-                </div>
-            </article>
-
-            <!-- Video 4 (Replaced with IMG_8605.MOV) -->
-            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group">
-                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" autoplay loop muted playsinline poster="assets/gallery1.jpg" src="assets/IMG_8605.MOV"></video>
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
-                <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
-                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">La Banda</span>
-                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Pura Energía</h3>
-                </div>
-            </article>
-
-            <!-- Video 5 (Replaced with IMG_8667.MOV) -->
-            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group">
-                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" autoplay loop muted playsinline poster="assets/gallery2.jpg" src="assets/IMG_8667.MOV"></video>
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
-                <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
-                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Cajamarca</span>
-                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Tradición Viva</h3>
-                </div>
-            </article>
-
-            <!-- Video 6 (Replaced with IMG_8675.MOV) -->
-            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group">
-                <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" autoplay loop muted playsinline poster="assets/gallery3.jpg" src="assets/IMG_8675.MOV"></video>
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
-                <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
-                    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Fiesta</span>
-                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Gozando</h3>
+                    <h3 class="f-anton uppercase text-[22px] leading-tight text-white mt-1">Gozando con el pueblo</h3>
                 </div>
             </article>
 
             <!-- CTA card -->
-            <article class="reel-card snap-center shrink-0 w-[268px] md:w-[312px] aspect-[9/16] relative rounded-[26px] overflow-hidden border-2 border-[#FF0080] bg-[#12000A] grid place-items-center text-center px-7 hover:bg-[#1A0010] transition-colors">
+            <article class="reel-card snap-start shrink-0 w-[300px] md:w-[360px] aspect-[9/16] relative rounded-[26px] overflow-hidden border-2 border-[#FF0080] bg-[#12000A] grid place-items-center text-center px-7 hover:bg-[#1A0010] transition-colors">
                 <div>
                     <i class="ti ti-brand-whatsapp text-[54px] text-[#00FF7F] animate-pulse"></i>
                     <h3 class="f-anton uppercase text-[30px] leading-[0.95] mt-4 gold-txt">
@@ -244,59 +218,19 @@
     </section>
 
     <!-- ============ GALERIA PHOTO WALL ============ -->
-    <section class="relative py-24 border-t border-white/[0.07]" id="galeria">
+    <section class="relative pt-24 pb-10 border-t border-white/[0.07]" id="galeria">
         <div class="max-w-[1320px] mx-auto px-6">
             <div class="flex flex-wrap items-end justify-between gap-6">
                 <h2 class="reveal f-anton uppercase text-[clamp(2.4rem,6vw,5.2rem)] leading-[0.9]">
                     <span class="gold-txt">Galería</span> <span class="pink-outline">de fiestas</span>
                 </h2>
                 <p class="reveal max-w-sm text-sm text-white/60">
-                    «Estamos muy felices por estar presentes en la fiesta en honor de la Virgen del Carmen – Bambamarca.»
+                    «El más alto nivel musical para fiestas patronales y compromisos de élite. Imponiendo elegancia, fuerza y tradición en cada escenario del país.»
                 </p>
             </div>
             
-            <div class="mt-12 grid grid-cols-2 md:grid-cols-6 gap-3 auto-rows-[150px] md:auto-rows-[200px] [grid-auto-flow:dense]">
-                <!-- Main image -->
-                <figure class="wall-cell relative col-span-2 md:col-span-3 md:row-span-2 z-10 overflow-hidden rounded-2xl border border-[#D4AF37]/50 gold-edge min-h-[260px] group cursor-pointer">
-                    <img alt="Banda en la plaza" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/foto2.jpeg"/>
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-6 translate-y-2 group-hover:translate-y-0 transition-transform">
-                        <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#00FFFF]">Plaza de armas · Bambamarca</span>
-                        <h3 class="f-anton uppercase text-[26px] md:text-[34px] text-white leading-tight mt-1">La banda completa</h3>
-                    </div>
-                </figure>
-                
-                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
-                    <img alt="Gallery 1" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery1.jpg"/>
-                </figure>
-                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
-                    <img alt="Gallery 2" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery2.jpg"/>
-                </figure>
-                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
-                    <img alt="Gallery 3" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery3.jpg"/>
-                </figure>
-                
-                <figure class="wall-cell relative col-span-2 md:row-span-2 z-10 overflow-hidden rounded-2xl border border-[#FF0080]/50 min-h-[220px] group cursor-pointer neon-pink-glow">
-                    <img alt="Gallery 4" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/gallery4.jpg"/>
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black to-transparent p-5">
-                        <h3 class="f-anton uppercase text-[24px] text-[#F0CB56]">Pasacalle 2026</h3>
-                    </div>
-                </figure>
-                
-                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
-                    <img alt="Gallery 5" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery5.jpg"/>
-                </figure>
-                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
-                    <img alt="Gallery 6" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery6.jpg"/>
-                </figure>
-                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
-                    <img alt="Gallery 7" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery7.jpg"/>
-                </figure>
-                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
-                    <img alt="Gallery 8" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery8.jpg"/>
-                </figure>
-                <figure class="wall-cell relative overflow-hidden rounded-2xl border border-white/10 min-h-[130px] group cursor-pointer">
-                    <img alt="Gallery 9" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 filter hover:brightness-110" src="assets/gallery9.jpg"/>
-                </figure>
+            <div class="mt-12 relative w-full h-[500px] md:h-[750px] overflow-hidden bg-[#0A0A0A]/50 border-y border-white/[0.05] shadow-inner" id="random-gallery">
+                <!-- JS will inject dynamic infinite scrolling images here -->
             </div>
         </div>
     </section>
@@ -370,48 +304,48 @@
             </div>
             
             <div class="relative mt-10 h-[680px] md:h-[720px] rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_50%_40%,rgba(212,175,55,.10),transparent_60%)] overflow-hidden" id="flyer-board">
-                <span class="absolute inset-0 grid place-items-center f-anton uppercase text-[clamp(3rem,12vw,10rem)] text-white/[0.04] select-none pointer-events-none">
-                    Mi Bambamarca
-                </span>
+                <div class="absolute inset-0 flex items-center justify-center select-none pointer-events-none opacity-[0.03]">
+                    <img src="assets/brand/logo.svg" alt="Marca de agua" class="w-[120%] md:w-[90%] h-[90%] object-contain brightness-0 invert" />
+                </div>
                 
                 <div class="polaroid left-[4%] top-[8%] rotate-[-7deg] w-[230px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
                     <div class="aspect-[4/5] overflow-hidden bg-black">
-                        <img alt="La banda completa" class="h-full w-full object-cover" src="assets/foto2.jpeg"/>
+                        <img alt="La banda completa" class="h-full w-full object-cover" src="assets/backgrounds/foto2.jpeg"/>
                     </div>
                     <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Bambamarca 2026</p>
                 </div>
                 
                 <div class="polaroid left-[27%] top-[26%] rotate-[5deg] w-[215px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
                     <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
-                        <img alt="Logo" class="w-full h-auto" src="assets/logo.png"/>
+                        <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
                     </div>
                     <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Nueva generación</p>
                 </div>
                 
                 <div class="polaroid left-[48%] top-[10%] rotate-[-3deg] w-[225px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
-                    <div class="aspect-[4/5] overflow-hidden bg-black">
-                        <img alt="Foto 1" class="h-full w-full object-cover" src="assets/foto1.jpeg"/>
+                    <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
+                        <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
                     </div>
                     <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Virgen del Carmen</p>
                 </div>
                 
                 <div class="polaroid left-[66%] top-[34%] rotate-[8deg] w-[210px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
-                    <div class="aspect-[4/5] overflow-hidden bg-black">
-                        <img alt="Gallery 10" class="h-full w-full object-cover" src="assets/gallery10.jpg"/>
+                    <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
+                        <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
                     </div>
                     <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Pasacalle Chota</p>
                 </div>
                 
                 <div class="polaroid left-[14%] top-[52%] rotate-[3deg] w-[205px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
-                    <div class="aspect-[4/5] overflow-hidden bg-black">
-                        <img alt="Gallery 11" class="h-full w-full object-cover" src="assets/gallery11.jpg"/>
+                    <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
+                        <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
                     </div>
                     <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Metales al 100</p>
                 </div>
                 
                 <div class="polaroid left-[80%] top-[6%] rotate-[-10deg] w-[195px] bg-white p-2.5 pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
-                    <div class="aspect-[4/5] overflow-hidden bg-black">
-                        <img alt="Gallery 8" class="h-full w-full object-cover" src="assets/gallery8.jpg"/>
+                    <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
+                        <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
                     </div>
                     <p class="absolute bottom-3 left-0 right-0 text-center f-anton uppercase text-[15px] text-[#0A0A0A]">Celendín</p>
                 </div>
@@ -420,8 +354,15 @@
     </section>
 
     <!-- ============ CONTACTO ============ -->
-    <section class="relative py-24 md:py-32 overflow-hidden noise-bg border-t border-white/[0.07]" id="contacto">
-        <div class="max-w-[1320px] mx-auto px-6 text-center">
+    <section class="relative py-24 md:py-32 overflow-hidden border-t border-white/[0.07]" id="contacto">
+        <!-- Fondo de agua -->
+        <div class="absolute inset-0 z-0 opacity-20 mix-blend-luminosity pointer-events-none">
+            <img src="assets/backgrounds/foto2.jpeg" class="w-full h-full object-cover filter grayscale contrast-125" alt="Fondo Contacto">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#000] via-transparent to-[#000]"></div>
+        </div>
+        <div class="absolute inset-0 z-0 noise-bg opacity-30 pointer-events-none"></div>
+        
+        <div class="relative z-10 max-w-[1320px] mx-auto px-6 text-center">
             <span class="reveal inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.4em] text-[#00FFFF]">
                 <i class="ti ti-brand-whatsapp text-base"></i> Contratos 2026
             </span>
@@ -469,7 +410,7 @@
         <div class="max-w-[1320px] mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12">
                 <div class="text-center lg:text-left">
-                    <img alt="Logo Gran Banda" class="w-[280px] h-auto mx-auto lg:mx-0 hover:scale-105 transition-transform" src="assets/logo.png"/>
+                    <img alt="Logo Gran Banda" class="w-[280px] h-auto mx-auto lg:mx-0 hover:scale-105 transition-transform" src="assets/brand/logo.png"/>
                     <p class="mt-4 text-sm text-white/55 max-w-sm">
                         Orquesta típica de Bambamarca, Cajamarca. Dirección: Abner Caruajulca Aguilar.
                     </p>
@@ -567,29 +508,64 @@
     });
 
     
-    /* ---------- Reels: focus the centered card ---------- */
+    /* ---------- Reels: Click-to-Focus & Observer ---------- */
     const track = document.getElementById("reel-scroll");
     if (track) {
-        const cards = [...track.querySelectorAll(".reel-card")];
-        function focusCenter() {
-            const mid = track.scrollLeft + track.clientWidth / 2;
-            cards.forEach((c) => {
-                const cc = c.offsetLeft + c.offsetWidth / 2;
-                const d = Math.min(Math.abs(cc - mid) / (c.offsetWidth * 1.35), 1);
-                const s = 1 - d * 0.14;
-                c.style.transform = "scale(" + s.toFixed(3) + ")";
-                c.style.opacity = (1 - d * 0.62).toFixed(3);
-                c.style.filter = "saturate(" + (1 - d * 0.6).toFixed(2) + ") blur(" + (d * 1.6).toFixed(2) + "px)";
+        const cards = track.querySelectorAll('.reel-card');
+        const videos = track.querySelectorAll('.reel-video');
+        let activeCard = null;
+
+        function updateCards() {
+            cards.forEach(card => {
+                const vid = card.querySelector('.reel-video');
+                if (activeCard === card) {
+                    card.style.transform = 'scale(1.05)';
+                    card.style.opacity = '1';
+                    card.style.filter = 'brightness(1.1) saturate(1.1)';
+                    card.style.boxShadow = '0 0 35px rgba(212, 175, 55, 0.4)';
+                    card.style.zIndex = '10';
+                    if (vid) vid.muted = false;
+                } else {
+                    card.style.transform = activeCard ? 'scale(0.96)' : 'scale(1)';
+                    card.style.opacity = activeCard ? '0.7' : '1';
+                    card.style.filter = activeCard ? 'brightness(0.8) saturate(0.8)' : 'brightness(1) saturate(1)';
+                    card.style.boxShadow = 'none';
+                    card.style.zIndex = '1';
+                    if (vid) vid.muted = true;
+                }
             });
         }
-        track.addEventListener("scroll", () => requestAnimationFrame(focusCenter), { passive: true });
-        window.addEventListener("resize", focusCenter);
-        requestAnimationFrame(() => {
-            if (cards.length > 1) {
-                track.scrollLeft = cards[1].offsetLeft - (track.clientWidth - cards[1].offsetWidth) / 2;
-            }
-            focusCenter();
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                if (activeCard === card) {
+                    activeCard = null; // Toggle off
+                } else {
+                    activeCard = card;
+                    // Ensure the clicked card is smoothly scrolled into full view if partially hidden
+                    track.scrollTo({ left: card.offsetLeft - (window.innerWidth > 768 ? 48 : 24), behavior: 'smooth' });
+                }
+                updateCards();
+            });
         });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const vid = entry.target;
+                const card = vid.closest('.reel-card');
+                if (entry.isIntersecting) {
+                    vid.play().catch(()=>{});
+                } else {
+                    vid.pause();
+                    if (activeCard === card) {
+                        activeCard = null; // Turn off sound if scrolled away
+                        updateCards();
+                    }
+                }
+            });
+        }, { root: track, threshold: 0.3 });
+
+        videos.forEach(v => observer.observe(v));
 
         /* Reel navigation buttons */
         document.querySelector('[data-reel="prev"]')?.addEventListener('click', () => {
@@ -616,10 +592,10 @@
     });
 
 
-    gsap.set('.polaroid', { autoAlpha: 0, scale: 0.8, rotate: 0 });
+    gsap.set('.polaroid', { autoAlpha: 0, y: 60 });
     ScrollTrigger.create({
       trigger: '#flyer-board', start: 'top 80%', once: true,
-      onEnter: () => gsap.to('.polaroid', { autoAlpha: 1, scale: 1, duration: 0.7, stagger: 0.08, ease: 'back.out(1.7)' })
+      onEnter: () => gsap.to('.polaroid', { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.08, ease: 'back.out(1.5)', clearProps: 'transform' })
     });
 
     /* ---------- Marquesinas ---------- */
@@ -637,13 +613,18 @@
 
     /* ---------- Reel: hover logic removed as it conflicts with focusCenter ---------- */
     /* ---------- Polaroids arrastrables ---------- */
+    let polaroidZIndex = 40;
     document.querySelectorAll('.polaroid').forEach((p) => {
       createDraggable(p, {
         container: '#flyer-board',
         releaseStiffness: 110,
         releaseDamping: 16,
         maxVelocity: 2,
-        onGrab: () => { p.style.zIndex = 40; animate(p, { scale: 1.05, duration: 180, ease: 'out(3)' }); },
+        onGrab: () => { 
+            polaroidZIndex++;
+            p.style.zIndex = polaroidZIndex; 
+            animate(p, { scale: 1.05, duration: 180, ease: 'out(3)' }); 
+        },
         onRelease: () => { animate(p, { scale: 1, duration: 260, ease: 'out(3)' }); }
       });
     });
@@ -657,12 +638,218 @@
 
     animate('#wa-float', { scale: [1, 1.06], duration: 1400, ease: 'inOut(2)', alternate: true, loop: true });
     
-    /* ---------- Header compacto al bajar ---------- */
-    const header = document.getElementById('site-header');
+
+
+    /* ---------- Random Masonry Marquee ---------- */
+    const randomGallery = document.getElementById('random-gallery');
+    if (randomGallery) {
+      // Create track
+      const track = document.createElement('div');
+      track.className = 'absolute top-3 bottom-3 left-0 right-0';
+      randomGallery.appendChild(track);
+
+      const totalImages = 38;
+      const speed = 1.0; 
+      const imagesArray = Array.from({length: totalImages}, (_, i) => i + 1);
+      
+      let bag = [];
+      function getRandomImageId() {
+        if (bag.length === 0) {
+          bag = [...imagesArray];
+          for (let i = bag.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [bag[i], bag[j]] = [bag[j], bag[i]];
+          }
+        }
+        return bag.pop();
+      }
+
+      // 5 types of extreme diverse Masonry blocks (4 cols x 2 rows = 8 slots each)
+      const chunkTemplates = [
+        // 1: Big left, four small right
+        [
+          'col-span-2 row-span-2 border-white/10',
+          'col-span-1 row-span-1 border-white/10',
+          'col-span-1 row-span-1 border-white/10',
+          'col-span-1 row-span-1 border-white/10',
+          'col-span-1 row-span-1 border-white/10'
+        ],
+        // 2: Four small left, Big right
+        [
+          'col-span-1 row-span-1 border-white/10',
+          'col-span-1 row-span-1 border-white/10',
+          'col-span-2 row-span-2 border-white/10',
+          'col-span-1 row-span-1 border-white/10',
+          'col-span-1 row-span-1 border-white/10'
+        ],
+        // 3: Big Center, small corners
+        [
+          'col-span-1 row-span-1 border-white/10',
+          'col-span-2 row-span-2 border-white/10',
+          'col-span-1 row-span-1 border-white/10',
+          'col-span-1 row-span-1 border-white/10',
+          'col-span-1 row-span-1 border-white/10'
+        ],
+        // 4: Two horizontals left, Big right
+        [
+          'col-span-2 row-span-1 border-white/10',
+          'col-span-2 row-span-2 border-white/10',
+          'col-span-2 row-span-1 border-white/10'
+        ],
+        // 5: Four horizontals
+        [
+          'col-span-2 row-span-1 border-white/10',
+          'col-span-2 row-span-1 border-white/10',
+          'col-span-2 row-span-1 border-white/10',
+          'col-span-2 row-span-1 border-white/10'
+        ]
+      ];
+
+      let activeChunks = [];
+      
+      function spawnChunk(xPos) {
+        const chunk = document.createElement('div');
+        chunk.className = 'w-[1000px] md:w-[1400px] absolute top-0 bottom-0 grid grid-cols-4 grid-rows-2 gap-2 md:gap-3';
+        chunk.style.transform = `translate3d(${xPos}px, 0, 0)`;
+        
+        const tmpl = chunkTemplates[Math.floor(Math.random() * chunkTemplates.length)];
+        
+        tmpl.forEach(cls => {
+          const figure = document.createElement('figure');
+          figure.className = `relative overflow-hidden rounded-xl md:rounded-2xl border-2 group cursor-crosshair ${cls}`;
+          
+          // Randomly inject a video if it's a small slot (10% chance)
+          const isSmall = cls.includes('col-span-1 row-span-1');
+          if (isSmall && Math.random() > 0.90) {
+            const vidId = Math.floor(Math.random() * 3) + 1;
+            const vid = document.createElement('video');
+            vid.src = `assets/videos/vid${vidId}.mp4`;
+            vid.autoplay = true;
+            vid.loop = true;
+            vid.muted = true;
+            vid.playsInline = true;
+            vid.className = 'absolute inset-0 h-full w-full object-cover filter brightness-[0.7] group-hover:brightness-110 group-hover:scale-105 transition-all duration-700';
+            figure.appendChild(vid);
+          } else {
+            const id = getRandomImageId();
+            const img = document.createElement('img');
+            img.src = `assets/gallery/gallery${id}.jpg`;
+            img.className = 'absolute inset-0 h-full w-full object-cover object-[center_25%] filter brightness-[0.7] group-hover:brightness-110 group-hover:scale-105 transition-all duration-700';
+            figure.appendChild(img);
+          }
+          
+          chunk.appendChild(figure);
+        });
+        
+        track.appendChild(chunk);
+        return { el: chunk, x: xPos, w: window.innerWidth > 768 ? 1400 : 1000 }; // dynamic fallback
+      }
+
+      // Initial fill
+      let currentX = 0;
+      while (currentX < window.innerWidth + 1400) {
+        const w = window.innerWidth > 768 ? 1400 : 1000;
+        const c = spawnChunk(currentX);
+        c.w = w;
+        activeChunks.push(c);
+        currentX += w + (window.innerWidth > 768 ? 12 : 8); // gap
+      }
+      
+      let galleryRafId;
+      let isDragging = false;
+      let lastClientX = 0;
+      
+      randomGallery.style.cursor = 'grab';
+      randomGallery.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        lastClientX = e.clientX;
+        randomGallery.style.cursor = 'grabbing';
+      });
+      window.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - lastClientX;
+        lastClientX = e.clientX;
+        for (let i = 0; i < activeChunks.length; i++) {
+          activeChunks[i].x += dx;
+        }
+      });
+      window.addEventListener('pointerup', () => {
+        isDragging = false;
+        randomGallery.style.cursor = 'grab';
+      });
+
+      function animateGallery() {
+        if (!isDragging) {
+          for (let i = 0; i < activeChunks.length; i++) {
+            activeChunks[i].x -= speed;
+          }
+        }
+        
+        for (let i = 0; i < activeChunks.length; i++) {
+          activeChunks[i].el.style.transform = `translate3d(${activeChunks[i].x}px, 0, 0)`;
+        }
+        
+        // Destroy left (went too far left)
+        if (activeChunks[0].x < -activeChunks[0].w - 500) {
+          const removed = activeChunks.shift();
+          removed.el.remove();
+        }
+        
+        // Destroy right (went too far right)
+        const last = activeChunks[activeChunks.length - 1];
+        if (last.x > window.innerWidth + 800) {
+          const removed = activeChunks.pop();
+          removed.el.remove();
+        }
+        
+        // Spawn right
+        const rightmost = activeChunks[activeChunks.length - 1];
+        if (rightmost && rightmost.x + rightmost.w < window.innerWidth + 300) {
+          const newW = window.innerWidth > 768 ? 1400 : 1000;
+          const gap = window.innerWidth > 768 ? 12 : 8;
+          const c = spawnChunk(rightmost.x + rightmost.w + gap);
+          c.w = newW;
+          activeChunks.push(c);
+        }
+
+        // Spawn left
+        const leftmost = activeChunks[0];
+        if (leftmost && leftmost.x > -300) {
+          const newW = window.innerWidth > 768 ? 1400 : 1000;
+          const gap = window.innerWidth > 768 ? 12 : 8;
+          const c = spawnChunk(leftmost.x - newW - gap);
+          c.w = newW;
+          // Prepend in DOM to keep correct layer order, though absolute positioning makes it irrelevant
+          track.insertBefore(c.el, track.firstChild);
+          activeChunks.unshift(c);
+        }
+        
+        galleryRafId = requestAnimationFrame(animateGallery);
+      }
+      
+      const gObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          galleryRafId = requestAnimationFrame(animateGallery);
+        } else {
+          cancelAnimationFrame(galleryRafId);
+        }
+      });
+      gObserver.observe(randomGallery);
+    }
+
+    /* ---------- Auto-hide Header ---------- */
+    let lastDirection = 1;
     ScrollTrigger.create({
-      start: 'top -120',
-      onEnter: () => gsap.to(header, { paddingTop: 8, duration: 0.3, ease: 'power2.out' }),
-      onLeaveBack: () => gsap.to(header, { paddingTop: 16, duration: 0.3, ease: 'power2.out' })
+      start: 'top -80',
+      onUpdate: (self) => {
+        if (self.direction === 1 && lastDirection !== 1) { // scrolling down
+          gsap.to('#site-header', { yPercent: -150, duration: 0.3, ease: 'power2.inOut' });
+          lastDirection = 1;
+        } else if (self.direction === -1 && lastDirection !== -1) { // scrolling up
+          gsap.to('#site-header', { yPercent: 0, duration: 0.3, ease: 'power2.out' });
+          lastDirection = -1;
+        }
+      }
     });
 
     ScrollTrigger.refresh();
