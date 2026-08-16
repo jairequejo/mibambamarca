@@ -219,6 +219,12 @@
             <article class="reveal reel-card snap-start shrink-0 w-[300px] md:w-[360px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group transition-all duration-500">
                 <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loop muted playsinline autoplay preload="auto" poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid1.mp4"></video>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
+                
+                <div class="play-overlay absolute inset-0 bg-black/60 flex flex-col items-center justify-center transition-opacity duration-300 pointer-events-none opacity-0 z-20">
+                    <i class="ti ti-player-play-filled text-[3.5rem] text-[#D4AF37] animate-[spin_6s_linear_infinite]"></i>
+                    <span class="text-[#F0CB56] text-xs font-bold uppercase tracking-[0.3em] mt-4 drop-shadow-md">Reproducir</span>
+                </div>
+
                 <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
                     <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Poder musical</span>
                     <h3 class="f-anton uppercase text-[26px] text-white mt-1 leading-[1.1]">Despliegue<br/>Total</h3>
@@ -229,6 +235,12 @@
             <article class="reveal reel-card snap-start shrink-0 w-[300px] md:w-[360px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group transition-all duration-500">
                 <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loop muted playsinline autoplay preload="auto" poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid2.mp4"></video>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
+                
+                <div class="play-overlay absolute inset-0 bg-black/60 flex flex-col items-center justify-center transition-opacity duration-300 pointer-events-none opacity-0 z-20">
+                    <i class="ti ti-player-play-filled text-[3.5rem] text-[#D4AF37] animate-[spin_6s_linear_infinite]"></i>
+                    <span class="text-[#F0CB56] text-xs font-bold uppercase tracking-[0.3em] mt-4 drop-shadow-md">Reproducir</span>
+                </div>
+
                 <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
                     <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Show en vivo</span>
                     <h3 class="f-anton uppercase text-[26px] text-white mt-1 leading-[1.1]">Jerarquía<br/>en escena</h3>
@@ -239,6 +251,12 @@
             <article class="reveal reel-card snap-start shrink-0 w-[300px] md:w-[360px] aspect-[9/16] relative rounded-[26px] overflow-hidden border border-[#D4AF37]/45 gold-edge bg-black cursor-pointer group transition-all duration-500">
                 <video class="reel-video absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loop muted playsinline autoplay preload="auto" poster="assets/backgrounds/foto2.jpeg" src="assets/videos/vid3.mp4"></video>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/35"></div>
+                
+                <div class="play-overlay absolute inset-0 bg-black/60 flex flex-col items-center justify-center transition-opacity duration-300 pointer-events-none opacity-0 z-20">
+                    <i class="ti ti-player-play-filled text-[3.5rem] text-[#D4AF37] animate-[spin_6s_linear_infinite]"></i>
+                    <span class="text-[#F0CB56] text-xs font-bold uppercase tracking-[0.3em] mt-4 drop-shadow-md">Reproducir</span>
+                </div>
+
                 <div class="absolute left-4 right-4 bottom-4 transition-transform duration-300 group-hover:-translate-y-2">
                     <span class="inline-block text-[10px] font-bold uppercase tracking-[0.28em] text-[#00FFFF]">Sin filtros</span>
                     <h3 class="f-anton uppercase text-[26px] text-white mt-1 leading-[1.1]">La Plaza<br/>Retumba</h3>
@@ -594,6 +612,8 @@
         function updateCards() {
             cards.forEach(card => {
                 const vid = card.querySelector('.reel-video');
+                const overlay = card.querySelector('.play-overlay');
+                
                 if (activeCard === card) {
                     card.style.transform = 'scale(1.05)';
                     card.style.opacity = '1';
@@ -602,7 +622,16 @@
                     card.style.zIndex = '10';
                     if (vid) {
                         vid.muted = false;
-                        vid.play().catch(()=>{});
+                        const p = vid.play();
+                        if (p !== undefined) {
+                            p.catch(()=>{
+                                // Si el navegador bloquea el video, mostramos el overlay para indicarle al usuario que presione
+                                if (vid.paused && overlay) overlay.style.opacity = '1';
+                            }).then(()=>{
+                                // Si se reproduce con éxito, ocultamos el overlay
+                                if (!vid.paused && overlay) overlay.style.opacity = '0';
+                            });
+                        }
                     }
                 } else {
                     card.style.transform = activeCard ? 'scale(0.96)' : 'scale(1)';
@@ -611,6 +640,7 @@
                     card.style.boxShadow = 'none';
                     card.style.zIndex = '1';
                     if (vid) vid.muted = true;
+                    if (overlay) overlay.style.opacity = '0';
                 }
             });
         }
