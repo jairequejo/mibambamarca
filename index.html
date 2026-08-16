@@ -654,16 +654,22 @@
         cards.forEach(card => {
             card.addEventListener('click', () => {
                 const vid = card.querySelector('.reel-video');
+                const overlay = card.querySelector('.play-overlay');
                 
                 if (activeCard === card) {
-                    // Si el video está fallando en reproducirse (pausado), un toque debe forzarlo
-                    // sin deseleccionar la tarjeta.
-                    if (vid && vid.paused) {
+                    // Safari miente con vid.paused si tiene atributo autoplay.
+                    // La única fuente de verdad es si el overlay está visible (promesa rechazada).
+                    const isBlocked = overlay && overlay.style.opacity === '1';
+                    
+                    if (vid && isBlocked) {
                         vid.muted = false;
                         const p = vid.play();
-                        if (p !== undefined) p.catch(()=>{});
+                        if (p !== undefined) {
+                            p.catch(()=>{})
+                             .then(()=>{ if(overlay) overlay.style.opacity = '0'; });
+                        }
                     } else {
-                        activeCard = null; // Toggle off normal
+                        activeCard = null; // Toggle off normal si ya estaba sonando
                     }
                 } else {
                     activeCard = card;
