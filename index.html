@@ -607,22 +607,32 @@
             entries.forEach(entry => {
                 const vid = entry.target;
                 const card = vid.closest('.reel-card');
-                if (entry.isIntersecting) {
+                
+                // Play logic
+                if (entry.intersectionRatio >= 0.3) {
                     vid.play().catch(()=>{});
-                    // Efecto TikTok en móviles: autoseleccionar al deslizar
-                    if (window.innerWidth <= 768) {
+                } else {
+                    vid.pause();
+                }
+
+                // TikTok focus logic for mobile
+                if (window.innerWidth <= 768) {
+                    if (entry.intersectionRatio >= 0.55) {
                         activeCard = card;
+                        updateCards();
+                    } else if (activeCard === card) {
+                        activeCard = null;
                         updateCards();
                     }
                 } else {
-                    vid.pause();
-                    if (activeCard === card) {
-                        activeCard = null; // Turn off sound if scrolled away
+                    // Desktop: solo apagar sonido si se oculta por completo
+                    if (entry.intersectionRatio < 0.3 && activeCard === card) {
+                        activeCard = null;
                         updateCards();
                     }
                 }
             });
-        }, { root: track, threshold: 0.65 });
+        }, { root: track, threshold: [0, 0.3, 0.55] });
 
         videos.forEach(v => observer.observe(v));
 
