@@ -661,20 +661,30 @@
         cards.forEach(card => {
             card.addEventListener('click', () => {
                 const vid = card.querySelector('.reel-video');
+                const overlay = card.querySelector('.play-overlay');
                 
                 if (activeCard === card) {
-                    // Estilo TikTok: Tocar la tarjeta activa alterna entre Play y Pause, NO la encoge.
+                    const isBlocked = overlay && overlay.style.opacity === '1';
+
                     if (vid) {
-                        if (vid.paused) {
+                        // Si el video está verdaderamente pausado o está bloqueado por el navegador
+                        if (vid.paused || isBlocked) {
                             vid.muted = false;
                             vid.play().catch(()=>{});
+                            if (overlay) overlay.style.opacity = '0';
                         } else {
                             vid.pause();
+                            if (overlay) {
+                                overlay.style.opacity = '1';
+                                const icon = overlay.querySelector('i');
+                                const text = overlay.querySelector('span');
+                                if (icon) icon.className = 'ti ti-player-play-filled text-2xl text-white ml-1';
+                                if (text) text.innerText = 'REPRODUCIR';
+                            }
                         }
                     }
                 } else {
                     activeCard = card;
-                    // Ensure the clicked card is smoothly scrolled into full view if partially hidden
                     track.scrollTo({ left: card.offsetLeft - (window.innerWidth > 768 ? 48 : 24), behavior: 'smooth' });
                     updateCards();
                 }
@@ -707,30 +717,6 @@
         videos.forEach(v => {
             focusObserver.observe(v);
             v.loop = false; // Quitar el loop infinito para poder avanzar
-            
-            const overlay = v.parentElement.querySelector('.play-overlay');
-            const icon = overlay ? overlay.querySelector('i') : null;
-            const text = overlay ? overlay.querySelector('span') : null;
-
-            v.addEventListener('waiting', () => {
-                if (overlay && activeCard === v.closest('.reel-card')) {
-                    overlay.style.opacity = '1';
-                    if (icon) icon.className = 'ti ti-loader text-2xl text-white animate-[spin_1.5s_linear_infinite]';
-                    if (text) text.innerText = 'CARGANDO...';
-                }
-            });
-
-            v.addEventListener('playing', () => {
-                if (overlay) overlay.style.opacity = '0';
-            });
-
-            v.addEventListener('pause', () => {
-                if (overlay && activeCard === v.closest('.reel-card')) {
-                    overlay.style.opacity = '1';
-                    if (icon) icon.className = 'ti ti-player-play-filled text-2xl text-white ml-1';
-                    if (text) text.innerText = 'REPRODUCIR';
-                }
-            });
             
             v.addEventListener('ended', () => {
                 const currentCard = v.closest('.reel-card');
