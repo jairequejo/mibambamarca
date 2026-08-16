@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Gran Banda Mi Bambamarca | El peso pesado de las patronales">
   <meta property="og:description" content="¿Fiesta patronal en Cajamarca? Contrata a la Gran Banda Mi Bambamarca. 20 músicos de élite que hacen retumbar la plaza entera.">
-  <meta property="og:image" content="assets/backgrounds/foto2.jpeg">
+  <meta property="og:image" content="https://jairequejo.github.io/mibambamarca/assets/backgrounds/foto2.jpeg">
   <meta property="og:locale" content="es_PE">
 
   <!-- Schema.org para Google y Gemini (Entidad Musical/Local) -->
@@ -42,6 +42,11 @@
   <script src="https://unpkg.com/@tailwindcss/browser@4.3.3/dist/index.global.js" integrity="sha384-2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB" crossorigin="anonymous"></script>
   
   <style>
+    #preloader { position: fixed; inset: 0; z-index: 999999; background-color: #0A0A0A; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.6s ease-out, visibility 0.6s ease-out; }
+    .loader-logo { width: 140px; margin-bottom: 20px; animation: pulseLogo 1.5s infinite alternate; }
+    .loader-spinner { width: 40px; height: 40px; border: 3px solid rgba(212, 175, 55, 0.2); border-top-color: #D4AF37; border-radius: 50%; animation: spin 1s linear infinite; }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    @keyframes pulseLogo { 0% { opacity: 0.6; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1.05); } }
     @import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap');
     @import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont/tabler-icons.min.css');
 
@@ -99,6 +104,10 @@
   </style>
 </head>
 <body>
+  <div id="preloader">
+    <img src="assets/brand/logo.png" alt="Cargando..." class="loader-logo">
+    <div class="loader-spinner"></div>
+  </div>
   <div id="root" class="f-grotesk bg-[#0A0A0A] text-white overflow-x-clip antialiased selection:bg-[#FF0080] selection:text-white">    <!-- ============ HEADER FLOTANTE (Pill Design) ============ -->
     <header class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300 pointer-events-none" id="site-header">
         <div class="pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 rounded-full border border-white/10 bg-[#0A0A0A]/70 backdrop-blur-xl pl-5 pr-1.5 py-1.5 shadow-[0_10px_40px_rgba(0,0,0,0.8)] w-full max-w-fit">
@@ -501,6 +510,15 @@
   <link href="https://unpkg.com/lenis@1/dist/lenis.css" rel="stylesheet"/>
   
   <script type="module">
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.style.opacity = '0';
+        preloader.style.visibility = 'hidden';
+        setTimeout(() => preloader.remove(), 600);
+      }
+    });
+
     import Lenis from "https://esm.sh/lenis@1";
     import { animate, createDraggable, spring } from 'https://esm.sh/animejs@4';
 
