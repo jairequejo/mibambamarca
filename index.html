@@ -843,6 +843,7 @@
       let galleryRafId;
       let isDragging = false;
       let lastClientX = 0;
+      let currentVelocity = -speed;
       
       randomGallery.style.cursor = 'grab';
       randomGallery.addEventListener('pointerdown', (e) => {
@@ -853,6 +854,7 @@
       window.addEventListener('pointermove', (e) => {
         if (!isDragging) return;
         const dx = e.clientX - lastClientX;
+        currentVelocity = dx;
         lastClientX = e.clientX;
         for (let i = 0; i < activeChunks.length; i++) {
           activeChunks[i].x += dx;
@@ -869,8 +871,10 @@
 
       function animateGallery() {
         if (!isDragging) {
+          // Inercia suave hacia la velocidad base
+          currentVelocity = currentVelocity * 0.94 + (-speed) * 0.06;
           for (let i = 0; i < activeChunks.length; i++) {
-            activeChunks[i].x -= speed;
+            activeChunks[i].x += currentVelocity;
           }
         }
         
