@@ -1026,8 +1026,7 @@
     fetch(agendaCsvUrl)
       .then(res => res.text())
       .then(csv => {
-        let rowsRaw = csv.trim().split('
-').slice(1);
+        let rowsRaw = csv.trim().split('\n').slice(1);
         const container = document.getElementById('agenda-container');
         if (!container || rowsRaw.length === 0 || (rowsRaw.length === 1 && rowsRaw[0].trim() === '')) {
             if(container) container.innerHTML = '<p class="text-white/50 text-center py-10">Sin eventos próximos.</p>';
