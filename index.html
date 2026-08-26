@@ -354,6 +354,28 @@
         </div>
     </section>
 
+    <!-- ============ FECHAS ============ -->
+    <section class="relative py-24 bg-[#070707] border-y border-white/[0.07]" id="fechas">
+        <div class="max-w-[1320px] mx-auto px-6">
+            <div class="flex flex-wrap items-end justify-between gap-6">
+                <h2 class="reveal f-anton uppercase text-[clamp(2.4rem,6vw,5.2rem)] leading-[0.9]">
+                    <span class="gold-txt">
+                        Agenda
+                    </span>
+                    <span class="cyan-outline">
+                        2026
+                    </span>
+                </h2>
+                <p class="reveal max-w-sm text-sm text-white/60">
+                    Fechas confirmadas en fiestas patronales de Cajamarca. Consulta disponibilidad antes de que se llene.
+                </p>
+            </div>
+            <div class="mt-12 border-t border-white/10" id="agenda-container">
+                <p class="text-white/50 text-center py-10">Cargando agenda en vivo...</p>
+            </div>
+        </div>
+    </section>
+
     <!-- ============ FLYERS POLAROID ============ -->
     <section class="relative py-24 overflow-hidden">
         <div class="max-w-[1320px] mx-auto px-6">
@@ -373,50 +395,7 @@
                 <div class="absolute inset-0 flex items-center justify-center select-none pointer-events-none opacity-[0.03]">
                     <img src="assets/brand/logo.svg" alt="Marca de agua" class="w-[120%] md:w-[90%] h-[90%] object-contain brightness-0 invert" />
                 </div>
-                
-                <div class="polaroid left-[4%] top-[8%] rotate-[-1deg] md:rotate-[-2deg] w-[150px] md:w-[230px] bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
-                    <div class="aspect-[4/5] overflow-hidden bg-black">
-                        <img alt="La banda completa" class="h-full w-full object-cover" src="assets/backgrounds/foto2.jpeg"/>
-                    </div>
-                    <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">Bambamarca 2026</p>
-                </div>
-                
-                <div class="polaroid left-[27%] top-[26%] rotate-[1deg] md:rotate-[2deg] w-[145px] md:w-[215px] bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
-                    <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
-                        <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
-                    </div>
-                    <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">Nueva generación</p>
-                </div>
-                
-                <div class="polaroid left-[48%] top-[10%] rotate-[-1deg] md:rotate-[-1deg] w-[155px] md:w-[225px] bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
-                    <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
-                        <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
-                    </div>
-                    <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">Virgen del Carmen</p>
-                </div>
-                
-                <div class="polaroid left-[66%] top-[34%] rotate-[1deg] md:rotate-[2deg] w-[140px] md:w-[210px] bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
-                    <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
-                        <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
-                    </div>
-                    <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">Pasacalle Chota</p>
-                </div>
-                
-                <div class="polaroid left-[14%] top-[52%] rotate-[0deg] md:rotate-[1deg] w-[135px] md:w-[205px] bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
-                    <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
-                        <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
-                    </div>
-                    <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">Metales al 100</p>
-                </div>
-                
-                <div class="polaroid left-[80%] top-[6%] rotate-[-1deg] md:rotate-[-2deg] w-[130px] md:w-[195px] bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)]">
-                    <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center p-3">
-                        <img alt="Logo" class="w-full h-auto" src="assets/brand/logo.png"/>
-                    </div>
-                    <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">Celendín</p>
-                </div>
             </div>
-        </div>
     </section>
 
     <!-- ============ CONTACTO ============ -->
@@ -1038,6 +1017,186 @@
     });
 
     ScrollTrigger.refresh();
+
+    /* ========== FETCH LIVE DATA (SHEETS BACKEND) ========== */
+    const agendaCsvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTzSpg2Btp_n--dUIHh_jdevzHmS1dd_jjDJ5AAWFrB2FkcgOypVDdC3XoQS-Sxy6GVK6eSYaIAuPDi/pub?gid=1225759728&single=true&output=csv";
+    const flyerCsvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTzSpg2Btp_n--dUIHh_jdevzHmS1dd_jjDJ5AAWFrB2FkcgOypVDdC3XoQS-Sxy6GVK6eSYaIAuPDi/pub?gid=353171692&single=true&output=csv";
+    
+    // AGENDA
+    fetch(agendaCsvUrl)
+      .then(res => res.text())
+      .then(csv => {
+        let rowsRaw = csv.trim().split('
+').slice(1);
+        const container = document.getElementById('agenda-container');
+        if (!container || rowsRaw.length === 0 || (rowsRaw.length === 1 && rowsRaw[0].trim() === '')) {
+            if(container) container.innerHTML = '<p class="text-white/50 text-center py-10">Sin eventos próximos.</p>';
+            return;
+        }
+        
+        // Parse CSV into array
+        let events = [];
+        rowsRaw.forEach((r) => {
+          const cols = [];
+          let current = '';
+          let inQuotes = false;
+          for (let i = 0; i < r.length; i++) {
+            if (r[i] === '"') inQuotes = !inQuotes;
+            else if (r[i] === ',' && !inQuotes) { cols.push(current); current = ''; }
+            else current += r[i];
+          }
+          cols.push(current);
+          if (cols.length >= 5) {
+             events.push(cols);
+          }
+        });
+        
+        // REVERSE LIST: Bottom of Sheet -> Top of Page
+        events = events.reverse();
+        
+        let visibleCount = 5;
+        
+        function renderAgenda() {
+            let htmlContent = '';
+            const itemsToShow = events.slice(0, visibleCount);
+            
+            itemsToShow.forEach((cols, idx) => {
+              const diasRaw = cols[0].replace(/^"|"$/g, '').trim();
+              const mesRaw = cols[1].replace(/^"|"$/g, '').trim();
+              const nombre = cols[2].replace(/^"|"$/g, '').trim();
+              const lugar = cols[3].replace(/^"|"$/g, '').trim();
+              const estado = cols[4].replace(/^"|"$/g, '').trim();
+              
+              const dias = diasRaw.replace(/,/g, '·');
+              const mes = mesRaw || 'MES';
+              
+              const estadoL = estado.toLowerCase();
+              let badgeHtml = '';
+              let borderCls = 'border-[#D4AF37]/50 text-[#F0CB56]';
+              let wrapCls = '';
+              
+              if (estadoL.includes('confirmado')) {
+                badgeHtml = `<span class="justify-self-start md:justify-self-end shrink-0 rounded-full border border-white/20 text-white/60 text-[11px] font-bold uppercase tracking-[0.18em] px-4 py-2">Confirmado</span>`;
+              } else if (estadoL.includes('cupo')) {
+                badgeHtml = `<span class="justify-self-start md:justify-self-end shrink-0 rounded-full bg-[#D4AF37]/20 text-[#F0CB56] text-[11px] font-bold uppercase tracking-[0.18em] px-4 py-2">Últimos cupos</span>`;
+              } else if (estadoL.includes('libre')) {
+                badgeHtml = `<a class="press-btn justify-self-start md:justify-self-end shrink-0 rounded-full bg-[#FF0080] text-white text-[11px] font-bold uppercase tracking-[0.18em] px-4 py-2 neon-pink-glow" href="https://wa.me/51957678804" rel="noopener" target="_blank">Libre · Reserva</a>`;
+                borderCls = 'border-[#00FFFF]/50 text-[#00FFFF]';
+              } else {
+                badgeHtml = `<span class="justify-self-start md:justify-self-end shrink-0 rounded-full border border-white/20 text-white/60 text-[11px] font-bold uppercase tracking-[0.18em] px-4 py-2">${estado}</span>`;
+              }
+              
+              if (idx === 0) {
+                borderCls = 'bg-[#FF0080] text-white neon-pink-glow border-none';
+                wrapCls = 'group';
+              }
+              
+              htmlContent += `
+                <div class="date-row ${wrapCls} grid grid-cols-1 md:grid-cols-[190px_1fr_auto] items-center gap-4 md:gap-8 py-6 border-b border-white/10">
+                    <div class="rounded-xl px-4 py-3 text-center border ${borderCls}">
+                        <p class="f-anton uppercase text-[26px] leading-none">${dias}</p>
+                        <p class="text-[11px] font-bold uppercase tracking-[0.3em] mt-1">${mes}</p>
+                    </div>
+                    <div>
+                        <h3 class="f-anton uppercase text-[24px] md:text-[30px] text-white leading-tight">
+                            ${nombre}
+                        </h3>
+                        ${lugar ? `<p class="text-sm text-white/55 mt-1 flex items-center gap-2">
+                            <i class="ti ti-map-pin text-[#00FFFF]"></i>
+                            ${lugar}
+                        </p>` : ''}
+                    </div>
+                    ${badgeHtml}
+                </div>
+              `;
+            });
+            
+            container.innerHTML = htmlContent;
+            
+            if (visibleCount < events.length) {
+                const btnContainer = document.createElement('div');
+                btnContainer.className = 'flex justify-center mt-10 pb-4';
+                btnContainer.innerHTML = `<button id="btn-load-more" class="press-btn rounded-full border border-[#00FFFF]/50 text-[#00FFFF] px-8 py-3 text-[13px] font-bold uppercase tracking-[0.18em] hover:bg-[#00FFFF]/10 transition-colors shadow-[0_0_15px_rgba(0,255,255,0.1)] hover:shadow-[0_0_25px_rgba(0,255,255,0.3)]">Ver más fechas</button>`;
+                container.appendChild(btnContainer);
+                
+                document.getElementById('btn-load-more').addEventListener('click', () => {
+                    visibleCount += 5;
+                    renderAgenda();
+                });
+            }
+            
+            container.querySelectorAll('.press-btn').forEach((b) => {
+                b.addEventListener('pointerdown', () => window.animate && window.animate(b, { scale: 0.94, duration: 100, ease: 'out(3)' }));
+                b.addEventListener('pointerup', () => window.animate && window.animate(b, { scale: 1, ease: window.spring && window.spring({ stiffness: 220, damping: 12 }) }));
+                b.addEventListener('pointerleave', () => window.animate && window.animate(b, { scale: 1, duration: 200, ease: 'out(3)' }));
+            });
+        }
+        
+        renderAgenda();
+      })
+      .catch(e => console.error(e));
+
+    // FLYERS
+    fetch(flyerCsvUrl)
+      .then(res => res.text())
+      .then(csv => {
+        const rows = csv.trim().split('\n').slice(1);
+        const board = document.getElementById('flyer-board');
+        if (!board || rows.length === 0 || (rows.length === 1 && rows[0].trim() === '')) return;
+        
+        const poses = [
+          { l: '4%', t: '8%', r: '-2deg' },
+          { l: '27%', t: '26%', r: '2deg' },
+          { l: '48%', t: '10%', r: '-1deg' },
+          { l: '66%', t: '34%', r: '2deg' },
+          { l: '14%', t: '52%', r: '1deg' },
+          { l: '80%', t: '6%', r: '-2deg' }
+        ];
+        
+        rows.forEach((r, idx) => {
+          const cols = r.split(',');
+          if(cols.length < 2) return;
+          const titulo = cols[0].replace(/^"|"$/g, '').trim();
+          const url = cols.slice(1).join(',').replace(/^"|"$/g, '').trim();
+          const p = poses[idx % poses.length];
+          
+          const div = document.createElement('div');
+          div.className = 'polaroid absolute bg-white p-1.5 pb-8 md:p-2.5 md:pb-11 shadow-[0_20px_50px_rgba(0,0,0,.75)] opacity-0';
+          div.style.left = p.l;
+          div.style.top = p.t;
+          div.style.transform = `rotate(${p.r}) translateY(60px)`;
+          div.style.width = window.innerWidth < 768 ? '145px' : '215px';
+          
+          div.innerHTML = `
+            <div class="aspect-[4/5] overflow-hidden bg-black grid place-items-center">
+                <img alt="${titulo}" class="w-full h-full object-cover" src="${url}"/>
+            </div>
+            <p class="absolute bottom-2 md:bottom-3 left-0 right-0 text-center f-anton uppercase text-[11px] md:text-[15px] text-[#0A0A0A]">${titulo}</p>
+          `;
+          
+          board.appendChild(div);
+          
+          // Make draggable
+          if (window.createDraggable) {
+             window.createDraggable(div, {
+               container: '#flyer-board',
+               releaseStiffness: 110, releaseDamping: 16, maxVelocity: 2,
+               onGrab: () => { 
+                   if(typeof polaroidZIndex !== 'undefined') { polaroidZIndex++; div.style.zIndex = polaroidZIndex; }
+                   if(window.animate) window.animate(div, { scale: 1.05, duration: 180, ease: 'out(3)' }); 
+               },
+               onRelease: () => { if(window.animate) window.animate(div, { scale: 1, duration: 260, ease: 'out(3)' }); }
+             });
+          }
+          // Animate entrance
+          if (window.gsap) {
+             gsap.to(div, { autoAlpha: 1, y: 0, duration: 0.8, delay: idx * 0.1, ease: 'back.out(1.5)', clearProps: 'transform' });
+             gsap.set(div, { rotation: p.r.replace('deg','') }); // set static rotation
+          }
+        });
+      })
+      .catch(e => console.error(e));
+
   </script>
 </body>
 </html>
